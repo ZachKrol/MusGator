@@ -1,1 +1,1 @@
-# MusiGator
+# MusGator
