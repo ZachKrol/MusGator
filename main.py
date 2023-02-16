@@ -82,6 +82,7 @@ def main():
     # 'pages' is an array with each page at a different index
     pages = QStackedWidget()
     pages.setWindowTitle("MusGator")
+    pages.setMinimumSize(800,600)
 
     # NOTE: if pages need some information before loading, then don't initialize them here
 
@@ -95,10 +96,6 @@ def main():
     pages.addWidget(learnPage) # index 1
     pages.addWidget(quizPage) # index 2
     pages.addWidget(progressPage) # index 3
-
-    # TODO: change window size so it scales properly
-    pages.setFixedHeight(300)
-    pages.setFixedWidth(400)
 
     pages.show()
 
