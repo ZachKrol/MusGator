@@ -19,6 +19,9 @@
   <property name="windowTitle">
    <string>MusGator</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(85, 170, 255);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0" columnstretch="0,0">
     <item row="1" column="1">
@@ -60,6 +63,9 @@
           <bold>false</bold>
           <stylestrategy>NoAntialias</stylestrategy>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string>MusGator</string>
@@ -166,6 +172,11 @@
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
             </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid black;
+border-radius: 15%;</string>
+            </property>
             <property name="text">
              <string>Learn</string>
             </property>
@@ -212,6 +223,11 @@
             </property>
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid black;
+border-radius: 15%;</string>
             </property>
             <property name="text">
              <string>Quiz</string>
@@ -260,6 +276,11 @@
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
             </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid black;
+border-radius: 15%;</string>
+            </property>
             <property name="text">
              <string>Progress</string>
             </property>
@@ -305,7 +326,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
