@@ -110,7 +110,7 @@ def main():
     pages.setMinimumSize(800,600)
 
     # NOTE: if pages need some information before loading, then don't initialize them here
-
+ 
     splashPage = SplashPage(pages)
     homePage = HomePage(pages)
     learnPage = LearnPage(pages)
