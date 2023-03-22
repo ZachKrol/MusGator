@@ -42,6 +42,8 @@ class NoteLearnPage(QMainWindow):
     def __init__(self, pages):
         super(NoteLearnPage, self).__init__()
         loadUi("NoteLearning.ui", self)
+        self.lessonTitle.setText('set')
+        self.lessonText.setText('some text')
 
 
 def main():
