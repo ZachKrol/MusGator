@@ -2,6 +2,7 @@ import sys
 import csv
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
+from PyQt5.QtGui import *
 
 # 0 - Splash page
 # 1 - Home page
@@ -59,6 +60,7 @@ class LearnPage(QMainWindow):
 
         self.text = []
         self.title = []
+        self.imagename = []
 
         self.index = 0
 
@@ -70,11 +72,16 @@ class LearnPage(QMainWindow):
                         if row[1] == lesson_name:
                             self.title.append(row[2])
                             self.text.append(row[3])
+                            self.imagename.append(row[4])
 
         self.previousButton.setText("Back")
         self.lessonTitle.setText(lesson_name)
         self.lessonTextLabel.setText(self.title[self.index])
         self.lessonText.setText(self.text[self.index])
+        
+        scene = QGraphicsScene()
+        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        self.lessonImage.setScene(scene)
 
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
