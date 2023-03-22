@@ -16,10 +16,6 @@ class SplashPage(QMainWindow):
 
         self.startButton.clicked.connect(lambda: self.toHome(pages))
 
-        # self.learnButton.clicked.connect(lambda: self.toLearn(pages))
-        # self.quizButton.clicked.connect(lambda: self.toQuiz(pages))
-        # self.progressButton.clicked.connect(lambda: self.toProgress(pages))
-
     def toHome(self, pages):
         pages.setCurrentIndex(self.homeIndex)
 
@@ -61,8 +57,10 @@ class LearnPage(QMainWindow):
         
         loadUi("Learning.ui", self)
 
-        text = []
-        title = []
+        self.text = []
+        self.title = []
+
+        self.index = 0
 
         with open('data.csv') as file:
             csv_reader = csv.reader(file, delimiter=',')
@@ -70,12 +68,44 @@ class LearnPage(QMainWindow):
             for row in csv_reader:
                     if row[0] == "Lesson":
                         if row[1] == lesson_name:
-                            title.append(row[2])
-                            text.append(row[3])
+                            self.title.append(row[2])
+                            self.text.append(row[3])
 
+        self.previousButton.setText("Back")
         self.lessonTitle.setText(lesson_name)
-        self.lessonTextLabel.setText(title[0])
-        self.lessonText.setText(text[0])
+        self.lessonTextLabel.setText(self.title[self.index])
+        self.lessonText.setText(self.text[self.index])
+
+        self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
+        self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
+
+    def clickPreviousButton(self, pages):
+        if self.index == 0:
+            pages.setCurrentIndex(1) # Return to home page
+        
+        else:
+            if self.index == 1:
+                self.previousButton.setText("Back")
+            
+            self.index = self.index - 1
+            self.lessonTextLabel.setText(self.title[self.index])
+            self.lessonText.setText(self.text[self.index])
+
+    def clickNextButton(self, pages):
+        if self.index == len(self.text) - 1:
+            pages.setCurrentIndex(1) # Return to home page
+            self.index = 0
+        
+        else:
+            if self.index == len(self.text) - 2:
+                self.nextButton.setText("Finish")
+            
+            if self.index == 0:
+                self.previousButton.setText("Previous")
+
+            self.index = self.index + 1
+            self.lessonTextLabel.setText(self.title[self.index])
+            self.lessonText.setText(self.text[self.index])
 
 
 
