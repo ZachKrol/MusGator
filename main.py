@@ -101,7 +101,11 @@ class LearnPage(QMainWindow):
     def clickNextButton(self, pages):
         if self.index == len(self.text) - 1:
             pages.setCurrentIndex(1) # Return to home page
+            self.nextButton.setText("Next")
             self.index = 0
+
+            self.lessonTextLabel.setText(self.title[self.index])
+            self.lessonText.setText(self.text[self.index])
         
         else:
             if self.index == len(self.text) - 2:
@@ -113,6 +117,7 @@ class LearnPage(QMainWindow):
             self.index = self.index + 1
             self.lessonTextLabel.setText(self.title[self.index])
             self.lessonText.setText(self.text[self.index])
+
 
 
 
