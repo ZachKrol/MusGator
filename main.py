@@ -1,4 +1,5 @@
 import sys
+import csv
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
 
@@ -38,12 +39,28 @@ class HomePage(QMainWindow):
 
 
 # Learn Page
-class NoteLearnPage(QMainWindow):
-    def __init__(self, pages):
-        super(NoteLearnPage, self).__init__()
-        loadUi("NoteLearning.ui", self)
-        self.lessonTitle.setText('set')
-        self.lessonText.setText('some text')
+class LearnPage(QMainWindow):
+    def __init__(self, pages, lesson_name):
+        super(LearnPage, self).__init__()
+        
+        loadUi("Learning.ui", self)
+
+        text = []
+        title = []
+
+        with open('data.csv') as file:
+            csv_reader = csv.reader(file, delimiter=',')
+
+            for row in csv_reader:
+                    if row[0] == "Lesson":
+                        if row[1] == lesson_name:
+                            title.append(row[2])
+                            text.append(row[3])
+
+        self.lessonTitle.setText(lesson_name)
+        self.lessonTextLabel.setText(title[0])
+        self.lessonText.setText(text[0])
+
 
 
 def main():
@@ -59,7 +76,7 @@ def main():
     splashPage = SplashPage(pages)
     homePage = HomePage(pages)
 
-    noteLearnPage = NoteLearnPage(pages)
+    noteLearnPage = LearnPage(pages, "Note Learning")
 
 
     pages.addWidget(splashPage) # index 0
