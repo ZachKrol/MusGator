@@ -29,12 +29,28 @@ class HomePage(QMainWindow):
     def __init__(self, pages):
         super(HomePage, self).__init__()
         loadUi("HomePage.ui", self)
+
         self.noteLearnIndex = 2
+        self.sightLearnIndex = 3
+        self.rhythmLearnIndex = 4
+        self.earLearnIndex = 5
         
         self.learnNotes.clicked.connect(lambda: self.toNoteLearn(pages))
+        self.learnSight.clicked.connect(lambda: self.toSightLearn(pages))
+        self.learnRhythm.clicked.connect(lambda: self.toRhythmLearn(pages))
+        self.learnEar.clicked.connect(lambda: self.toEarLearn(pages))
 
     def toNoteLearn(self, pages):
         pages.setCurrentIndex(self.noteLearnIndex)
+    
+    def toSightLearn(self, pages):
+        pages.setCurrentIndex(self.sightLearnIndex)
+
+    def toRhythmLearn(self, pages):
+        pages.setCurrentIndex(self.rhythmLearnIndex)
+    
+    def toEarLearn(self, pages):
+        pages.setCurrentIndex(self.earLearnIndex)
 
 
 
@@ -77,11 +93,17 @@ def main():
     homePage = HomePage(pages)
 
     noteLearnPage = LearnPage(pages, "Note Learning")
-
+    sightLearnPage = LearnPage(pages, "Sight Reading")
+    rhythmLearnPage = LearnPage(pages, "Rhythm")
+    earLearnPage = LearnPage(pages, "Ear Training")
 
     pages.addWidget(splashPage) # index 0
     pages.addWidget(homePage) # index 1
+
     pages.addWidget(noteLearnPage) # index 2
+    pages.addWidget(sightLearnPage) # index 3
+    pages.addWidget(rhythmLearnPage) # index 4
+    pages.addWidget(earLearnPage) # index 5
 
     pages.show()
 
