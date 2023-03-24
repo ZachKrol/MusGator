@@ -1,27 +1,51 @@
 Lesson,Note Learning,Title 1,Text 1,lesson1.jpg
-Lesson,Note Learning,Time Signature,The numbers placed at the beginning of a composition. The upper number indicates the number of beats per measure; the lower number tells what kind of a note with receive one beat,pic1.jpg
-Lesson,Note Learning,Bar Line,Vertical line drawn on the staff to divide music into measures,pic2.jpg
-Lesson,Note Learning,Measure,The space between two Bar lines where music is written. How many beats is determined by the Time Signature.,pic2.jpg
-Lesson,Note Learning,Whole Note,4 beats of sound,pic3.jpg
-Lesson,Note Learning,Whole Rest,4 beats of silence,pic4.jpg
-Lesson,Note Learning,Dotted Half Note,3 beats of sound,pic5.jpg
-Lesson,Note Learning,Half Note,2 beats of sound,pic6.jpg
-Lesson,Note Learning,Half Rest,2 beats of silence,pic7.jpg
-Lesson,Note Learning,Quarter Note,1 beat of sound,pic8.jpg
-Lesson,Note Learning,Quarter Rest,1 beat of silence,pic9.jpg
-Lesson,Note Learning,Pair of Eighth Notes,Both Together 1 beat of sound,pic10.jpg
-Lesson,Note Learning,Single Eighth Note,1/2 beat of sound,pic11.jpg
-Lesson,Note Learning,Eighth Rest,1/2 beat of silence,pic12.jpg
-Lesson,Note Learning,Dotted Quarter Note,1 1/2 beats of sound,pic13.jpg
-Lesson,Note Learning,4/4 Time Signature,4 beats per measure,pic14.jpg
-Lesson,Note Learning,2/4 Time Signature,2 beats per measure,pic15.jpg
-Lesson,Note Learning,Repeat Sign,Go back to the beginning and play again,pic16.jpg
-Lesson,Note Learning,Double Bar Line,"The music is over, the end!",pic17.jpg
-Lesson,Note Learning,Group of 4 Sixteenth Notes,All four Together 1 beat of sound.,pic18.jpg
-Lesson,Note Learning,Single Sixteenth Note,1/4 beat of sound,pic19.jpg
-Lesson,Note Learning,Sixteenth Rest,1/4 beat of silence,pic20.jpg
-Lesson,Note Learning,3/4 Time Signature,3 beats per measure,pic21.jpg
-Lesson,Note Learning,Tie,A curved line that connects the heads of two notes together to create a longer sound (equal to both added together),pic22.jpg
+Lesson,Rhythm,Time Signature,The numbers placed at the beginning of a composition. The upper number indicates the number of beats per measure; the lower number tells what kind of a note with receive one beat,pic1.jpg
+Lesson,Rhythm,Bar Line,Vertical line drawn on the staff to divide music into measures,pic2.jpg
+Lesson,Rhythm,Measure,The space between two Bar lines where music is written. How many beats is determined by the Time Signature.,pic2.jpg
+Lesson,Rhythm,Whole Note,4 beats of sound,pic3.jpg
+Lesson,Rhythm,Whole Rest,4 beats of silence,pic4.jpg
+Lesson,Rhythm,Dotted Half Note,3 beats of sound,pic5.jpg
+Lesson,Rhythm,Half Note,2 beats of sound,pic6.jpg
+Lesson,Rhythm,Half Rest,2 beats of silence,pic7.jpg
+Lesson,Rhythm,Quarter Note,1 beat of sound,pic8.jpg
+Lesson,Rhythm,Quarter Rest,1 beat of silence,pic9.jpg
+Lesson,Rhythm,Pair of Eighth Notes,Both Together 1 beat of sound,pic10.jpg
+Lesson,Rhythm,Single Eighth Note,1/2 beat of sound,pic11.jpg
+Lesson,Rhythm,Eighth Rest,1/2 beat of silence,pic12.jpg
+Lesson,Rhythm,Dotted Quarter Note,1 1/2 beats of sound,pic13.jpg
+Lesson,Rhythm,4/4 Time Signature,4 beats per measure,pic14.jpg
+Lesson,Rhythm,2/4 Time Signature,2 beats per measure,pic15.jpg
+Lesson,Rhythm,Repeat Sign,Go back to the beginning and play again,pic16.jpg
+Lesson,Rhythm,Double Bar Line,"The music is over, the end!",pic17.jpg
+Lesson,Rhythm,Group of 4 Sixteenth Notes,All four Together 1 beat of sound.,pic18.jpg
+Lesson,Rhythm,Single Sixteenth Note,1/4 beat of sound,pic19.jpg
+Lesson,Rhythm,Sixteenth Rest,1/4 beat of silence,pic20.jpg
+Lesson,Rhythm,3/4 Time Signature,3 beats per measure,pic21.jpg
+Lesson,Rhythm,Tie,A curved line that connects the heads of two notes together to create a longer sound (equal to both added together),pic22.jpg
+Lesson,Note Learning,D ,,sight1.jpg
+Lesson,Note Learning,F ,,sight2.jpg
+Lesson,Note Learning,Middle C ,,sight3.jpg
+Lesson,Note Learning,E ,,sight4.jpg
+Lesson,Note Learning,B ,,sight5.jpg
+Lesson,Note Learning,G ,,sight6.jpg
+Lesson,Note Learning,D ,,sight7.jpg
+Lesson,Note Learning,A ,,sight8.jpg
+Lesson,Note Learning,C ,,sight9.jpg
+Lesson,Note Learning,G ,,sight10.jpg
+Lesson,Note Learning,E ,,sight11.jpg
+Lesson,Note Learning,F ,,sight12.jpg
+Lesson,Note Learning,A ,,sight13.jpg
+Lesson,Note Learning,E ,,sight14.jpg
+Lesson,Note Learning,B ,,sight15.jpg
+Lesson,Note Learning,F ,,sight16.jpg
+Lesson,Note Learning,B ,,sight17.jpg
+Lesson,Note Learning,G ,,sight18.jpg
+Lesson,Note Learning,A ,,sight19.jpg
+Lesson,Note Learning,D ,,sight20.jpg
+Lesson,Note Learning,G ,,sight21.jpg
+Lesson,Note Learning,C ,,sight22.jpg
+Lesson,Note Learning,F ,,sight23.jpg
+Lesson,Note Learning,C,,sight24.jpg
 Lesson,Sight Reading,Title 1,Text 1,lesson1.jpg
 Lesson,Sight Reading,Title 2,Text 2,lesson1.jpg
 Lesson,Sight Reading,Title 3,Text 3,lesson1.jpg
@@ -32,16 +56,6 @@ Lesson,Sight Reading,Title 7,Text 7,lesson1.jpg
 Lesson,Sight Reading,Title 8,Text 8,lesson1.jpg
 Lesson,Sight Reading,Title 9,Text 9,lesson1.jpg
 Lesson,Sight Reading,Title 10,Text 10,lesson1.jpg
-Lesson,Rhythm,Title 1,Text 1,lesson1.jpg
-Lesson,Rhythm,Title 2,Text 2,lesson1.jpg
-Lesson,Rhythm,Title 3,Text 3,lesson1.jpg
-Lesson,Rhythm,Title 4,Text 4,lesson1.jpg
-Lesson,Rhythm,Title 5,Text 5,lesson1.jpg
-Lesson,Rhythm,Title 6,Text 6,lesson1.jpg
-Lesson,Rhythm,Title 7,Text 7,lesson1.jpg
-Lesson,Rhythm,Title 8,Text 8,lesson1.jpg
-Lesson,Rhythm,Title 9,Text 9,lesson1.jpg
-Lesson,Rhythm,Title 10,Text 10,lesson1.jpg
 Lesson,Ear Training,Title 1,Text 1,lesson1.jpg
 Lesson,Ear Training,Title 2,Text 2,lesson1.jpg
 Lesson,Ear Training,Title 3,Text 3,lesson1.jpg
