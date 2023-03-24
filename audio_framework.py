@@ -2,6 +2,9 @@ import pyaudio
 import numpy as np
 import aubio
 from scipy.signal import find_peaks
+import time
+import threading
+import pygame.midi as midi
 notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
 def get_pitch(signal):
@@ -41,3 +44,20 @@ def match_note(target_note):
                 note_held_time -= 1024/44100 # decrement the note held time if the note changes
         print(note, note_held_time)
     print("Note held!")
+
+def midi_quit():
+    del player
+    midi.quit()
+
+def play_note_helper(player, note):
+    time.sleep(1)
+    player.note_off(note, 127)
+    
+def play_note(note):
+    player.note_on(note, 127)
+    timer = threading.Timer(1, play_note_helper, [player, note])
+    timer.start()
+#midi setup
+midi.init()
+player = midi.Output(midi.get_default_output_id())
+player.set_instrument(0)

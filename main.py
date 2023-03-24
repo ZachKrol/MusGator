@@ -3,6 +3,7 @@ import csv
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import *
+import audio_framework
 
 # 0 - Splash page
 # 1 - Home page
@@ -82,8 +83,10 @@ class LearnPage(QMainWindow):
         scene = QGraphicsScene()
         scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
         self.lessonImage.setScene(scene)
-
-        self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
+        if(lesson_name == "Ear Training"):
+            self.previousButton.clicked.connect(lambda: audio_framework.play_note(60))
+        else:   
+            self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
 
     def clickPreviousButton(self, pages):
