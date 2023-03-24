@@ -1,5 +1,6 @@
 import sys
 import csv
+import rc_logo
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import *
