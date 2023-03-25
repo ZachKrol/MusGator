@@ -84,7 +84,7 @@ class LearnPage(QMainWindow):
         scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
         self.lessonImage.setScene(scene)
         if(lesson_name == "Ear Training"):
-            self.previousButton.clicked.connect(lambda: audio_framework.play_note(60))
+            self.previousButton.clicked.connect(lambda: audio_framework.ear_train(None))
         else:   
             self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))

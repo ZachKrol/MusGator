@@ -57,6 +57,9 @@ def play_note(note):
     player.note_on(note, 127)
     timer = threading.Timer(1, play_note_helper, [player, note])
     timer.start()
+def ear_train(note):
+    play_note(60)
+    match_note("C4")
 #midi setup
 midi.init()
 player = midi.Output(midi.get_default_output_id())
