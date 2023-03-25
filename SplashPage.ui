@@ -272,7 +272,7 @@
              <string notr="true">QPushButton {
 background-color: rgb(255, 255, 255);
 border: 1px solid #18A0FB;
-border-radius: 15%;
+border-radius: 10%;
 color:#18A0FB;
 }
 QPushButton:hover {
@@ -347,7 +347,7 @@ border: 1px solid #fff;
  </widget>
  <resources>
   <include location="logo/logo.qrc"/>
-  <include location="logo.qrc"/>
+  <include location="logo/logo.qrc"/>
  </resources>
  <connections/>
 </ui>

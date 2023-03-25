@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1045</width>
+    <width>800</width>
     <height>600</height>
    </rect>
   </property>
@@ -18,7 +18,8 @@
   </property>
   <property name="font">
    <font>
-    <family>Tw Cen MT</family>
+    <family>Vivaldi</family>
+    <italic>true</italic>
    </font>
   </property>
   <property name="windowTitle">
@@ -45,14 +46,35 @@
    </property>
    <property name="font">
     <font>
-     <family>Tw Cen MT</family>
+     <family>Verdana</family>
+     <pointsize>32</pointsize>
     </font>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">QLabel {
+	font: 20pt &quot;Tw Cen MT&quot;;
+	font-weight: bold;
+}
+QTextBrowser {
+	font: 12pt &quot;Tw Cen MT&quot;;
+	color: rgb(85, 85, 85);
+	border: none;
+}
+QPushButton {
+background-color: rgb(255, 255, 255);
+border: 1px solid #18A0FB;
+border-radius: 10%;
+color:#18A0FB;
+padding: 7px;
+}
+QPushButton:hover {
+color: rgb(255, 255, 255);
+background-color:  #18A0FB;
+border: 1px solid #fff;
+}</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">
@@ -106,7 +128,11 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>4</pointsize>
+             <family>Tw Cen MT</family>
+             <pointsize>20</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -124,10 +150,11 @@
           <widget class="QLabel" name="label_2">
            <property name="font">
             <font>
-             <family>Maiandra GD</family>
+             <family>Tw Cen MT</family>
              <pointsize>20</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
             </font>
            </property>
            <property name="styleSheet">
@@ -158,22 +185,35 @@ padding-left:4px;</string>
      </widget>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="layout" stretch="0,0">
+     <layout class="QVBoxLayout" name="layout" stretch="0,0,1">
       <property name="sizeConstraint">
        <enum>QLayout::SetMinimumSize</enum>
       </property>
       <property name="leftMargin">
-       <number>20</number>
+       <number>10</number>
       </property>
       <property name="topMargin">
-       <number>20</number>
+       <number>10</number>
       </property>
       <property name="rightMargin">
-       <number>20</number>
+       <number>10</number>
       </property>
       <property name="bottomMargin">
-       <number>20</number>
+       <number>10</number>
       </property>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item>
        <layout class="QHBoxLayout" name="topLayout" stretch="0,0,0">
         <property name="bottomMargin">
@@ -203,13 +243,13 @@ padding-left:4px;</string>
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>100</height>
+            <height>45</height>
            </size>
           </property>
           <property name="font">
            <font>
-            <family>Arial</family>
-            <pointsize>30</pointsize>
+            <family>Tw Cen MT</family>
+            <pointsize>36</pointsize>
             <weight>50</weight>
             <italic>false</italic>
             <bold>false</bold>
@@ -217,7 +257,8 @@ padding-left:4px;</string>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">color: rgb(0, 0, 0);</string>
+           <string notr="true">color: rgb(0, 0, 0);
+font: 36pt &quot;Tw Cen MT&quot;;</string>
           </property>
           <property name="text">
            <string>Learn and Test your Knowledge</string>
@@ -249,367 +290,750 @@ padding-left:4px;</string>
        </layout>
       </item>
       <item>
-       <layout class="QGridLayout" name="bottomLayout">
-        <property name="topMargin">
+       <layout class="QHBoxLayout" name="bottomLayout" stretch="1,3,1,3,1">
+        <property name="spacing">
          <number>0</number>
         </property>
-        <item row="3" column="1">
-         <spacer name="verticalSpacer_4">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::MinimumExpanding</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>5</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="6" column="0">
-         <layout class="QHBoxLayout" name="buttonsNotes">
-          <item>
-           <widget class="QPushButton" name="learnNotes">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-border-radius: 10%;
-padding: 7px;</string>
-            </property>
-            <property name="text">
-             <string>Learn</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="quizNotes">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-border-radius: 10%;
-padding: 7px;</string>
-            </property>
-            <property name="text">
-             <string>Quiz</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="8" column="0">
-         <widget class="QTextBrowser" name="textBrowser3">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>90</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>90</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border: none;</string>
-          </property>
-          <property name="html">
-           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','Arial','sans-serif'; font-size:8pt; color:#000000; background-color:#ffffff;&quot;&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras bibendum eu nibh quis finibus. Sed at faucibus dolor.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QTextBrowser" name="textBrowser1">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>90</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>90</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border: none;</string>
-          </property>
-          <property name="html">
-           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:7.8pt;&quot;&gt;Music is made up of a variety of symbol, the most basic of which are the staff, the clef, and the notes. All music contains these fundamental components, and to learn how to read sheet music, you must first familiarize yourself with these basics&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="2">
-         <widget class="QLabel" name="label4">
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Ear Training</string>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="2">
-         <layout class="QHBoxLayout" name="buttonsEar">
-          <item>
-           <widget class="QPushButton" name="learnEar">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-border-radius: 10%;
-padding: 7px;</string>
-            </property>
-            <property name="text">
-             <string>Learn</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="quizEar">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-border-radius: 10%;
-padding: 7px;</string>
-            </property>
-            <property name="text">
-             <string>Quiz</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label1">
-          <property name="font">
-           <font>
-            <family>Tw Cen MT</family>
-            <pointsize>16</pointsize>
-            <weight>50</weight>
-            <italic>false</italic>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLabel {
-	font: 16pt &quot;Tw Cen MT&quot;;
-}</string>
-          </property>
-          <property name="text">
-           <string>Note Learning</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="2">
-         <widget class="QTextBrowser" name="textBrowser2">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>90</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>90</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border: none;</string>
-          </property>
-          <property name="html">
-           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','Arial','sans-serif'; font-size:8pt; color:#000000; background-color:#ffffff;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor hendrerit augue id eleifend. Aenean tincidunt ipsum sem, at lacinia elit venenatis vel. Sed vitae dictum lectus, varius tristique velit.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="10" column="1">
-         <spacer name="verticalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::MinimumExpanding</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>5</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="8" column="2">
-         <widget class="QTextBrowser" name="textBrowser4">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>90</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>90</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border: none;</string>
-          </property>
-          <property name="html">
-           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','Arial','sans-serif'; font-size:8pt; color:#000000; background-color:#ffffff;&quot;&gt;Sed vestibulum nulla vel lectus tempor tempor. Cras neque mauris, efficitur nec maximus tincidunt, ultrices ac purus. Nulla at velit quis metus tincidunt fringilla quis quis nunc.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="2">
-         <layout class="QHBoxLayout" name="buttonsSight">
-          <item>
-           <widget class="QPushButton" name="learnSight">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-border-radius: 10%;
-padding: 7px;</string>
-            </property>
-            <property name="text">
-             <string>Learn</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="quizSight">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-border-radius: 10%;
-padding: 7px;</string>
-            </property>
-            <property name="text">
-             <string>Quiz</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="9" column="0">
-         <layout class="QHBoxLayout" name="buttonsRhythm">
-          <item>
-           <widget class="QPushButton" name="learnRhythm">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-border-radius: 10%;
-padding: 7px;</string>
-            </property>
-            <property name="text">
-             <string>Learn</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="quizRhythm">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-border-radius: 10%;
-padding: 7px;</string>
-            </property>
-            <property name="text">
-             <string>Quiz</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="4" column="2">
-         <widget class="QLabel" name="label2">
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>14</pointsize>
-            <weight>50</weight>
-            <italic>false</italic>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Sight Reading</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="0">
-         <widget class="QLabel" name="label3">
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Rhythm</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <spacer name="horizontalSpacer">
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>10</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <spacer name="leftSpacer">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Preferred</enum>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="leftColumn">
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <spacer name="col1top">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="noteLabel">
+            <property name="font">
+             <font>
+              <family>Tw Cen MT</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>Note Learning</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="noteText">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>125</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>125</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Tw Cen MT</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="html">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Tw Cen MT'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Music is made up of a variety of symbol, the most basic of which are the staff, the clef, and the notes. All music contains these fundamental components, and to learn how to read sheet music, you must first familiarize yourself with these basics&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="buttonsNotes">
+            <property name="bottomMargin">
+             <number>15</number>
+            </property>
+            <item>
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="learnNotes">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Learn</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="quizNotes">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Quiz</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="col1middle">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="rhythmLabel">
+            <property name="font">
+             <font>
+              <family>Tw Cen MT</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Rhythm</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="rhythmText">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>125</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>125</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Tw Cen MT</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="html">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Tw Cen MT'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras bibendum eu nibh quis finibus. Sed at faucibus dolor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="buttonsRhythm">
+            <item>
+             <spacer name="horizontalSpacer_8">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="learnRhythm">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Learn</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_7">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="quizRhythm">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Quiz</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_9">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="col1bottom">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="midSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>100</width>
-            <height>10</height>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="rightColumn">
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <spacer name="col2top">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="sightLabel">
+            <property name="font">
+             <font>
+              <family>Tw Cen MT</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>Sight Reading</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="sightText">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>125</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>125</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Tw Cen MT</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="html">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Tw Cen MT'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor hendrerit augue id eleifend. Aenean tincidunt ipsum sem, at lacinia elit venenatis vel. Sed vitae dictum lectus, varius tristique velit.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="buttonsSight">
+            <property name="bottomMargin">
+             <number>15</number>
+            </property>
+            <item>
+             <spacer name="horizontalSpacer_10">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="learnSight">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Learn</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_11">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="quizSight">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Quiz</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_12">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="col2middle">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="earLabel">
+            <property name="font">
+             <font>
+              <family>Tw Cen MT</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Ear Training</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="earText">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>125</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>125</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Tw Cen MT</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="html">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Tw Cen MT'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sed vestibulum nulla vel lectus tempor tempor. Cras neque mauris, efficitur nec maximus tincidunt, ultrices ac purus. Nulla at velit quis metus tincidunt fringilla quis quis nunc.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="buttonsEar">
+            <item>
+             <spacer name="horizontalSpacer_13">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="learnEar">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Learn</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_14">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="quizEar">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>Quiz</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_15">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="col2bottom">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="rightSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
            </size>
           </property>
          </spacer>
@@ -622,7 +1046,7 @@ padding: 7px;</string>
   </widget>
  </widget>
  <resources>
-  <include location="logo/banner.qrc"/>
+  <include location="banner/banner.qrc"/>
   <include location="banner/banner.qrc"/>
  </resources>
  <connections/>
