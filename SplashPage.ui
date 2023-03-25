@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1034</width>
-    <height>787</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -125,7 +125,7 @@
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="logo.qrc">:/splashLogo/logo.png</pixmap>
+             <pixmap resource="logo/logo.qrc">:/splashLogo/logo.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -338,7 +338,7 @@ border: 1px solid #fff;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1034</width>
+     <width>800</width>
      <height>21</height>
     </rect>
    </property>
@@ -346,6 +346,7 @@ border: 1px solid #fff;
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
+  <include location="logo/logo.qrc"/>
   <include location="logo.qrc"/>
  </resources>
  <connections/>

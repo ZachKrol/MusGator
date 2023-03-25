@@ -1,6 +1,7 @@
 import sys
 import csv
-import rc_logo
+import logo.rc_logo as rc_logo
+import banner.rc_banner as rc_banner
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import *
