@@ -1,9 +1,10 @@
 import sys
 import csv
+import logo.rc_logo as rc_logo
+import banner.rc_banner as rc_banner
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import *
-import audio_framework
 
 # 0 - Splash page
 # 1 - Home page
@@ -83,10 +84,8 @@ class LearnPage(QMainWindow):
         scene = QGraphicsScene()
         scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
         self.lessonImage.setScene(scene)
-        if(lesson_name == "Ear Training"):
-            self.previousButton.clicked.connect(lambda: audio_framework.ear_train(None))
-        else:   
-            self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
+
+        self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
 
     def clickPreviousButton(self, pages):
@@ -101,6 +100,10 @@ class LearnPage(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
             self.lessonText.setText(self.text[self.index])
 
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.lessonImage.setScene(scene)
+
     def clickNextButton(self, pages):
         if self.index == len(self.text) - 1:
             pages.setCurrentIndex(1) # Return to home page
@@ -109,6 +112,10 @@ class LearnPage(QMainWindow):
 
             self.lessonTextLabel.setText(self.title[self.index])
             self.lessonText.setText(self.text[self.index])
+
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.lessonImage.setScene(scene)
         
         else:
             if self.index == len(self.text) - 2:
@@ -120,6 +127,10 @@ class LearnPage(QMainWindow):
             self.index = self.index + 1
             self.lessonTextLabel.setText(self.title[self.index])
             self.lessonText.setText(self.text[self.index])
+
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.lessonImage.setScene(scene)
 
 
 
