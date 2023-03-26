@@ -3,5 +3,7 @@ ui_HomePage.py
 ui_ProgressPage.py
 ui_LearnPage.py
 ui_SplashPage.py
+banner/__pycache__/
+logo/__pycache__/
 banner/__pycache__/rc_banner.cpython-311.pyc
 logo/__pycache__/rc_logo.cpython-311.pyc
