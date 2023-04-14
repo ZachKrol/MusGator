@@ -35,12 +35,21 @@ class HomePage(QMainWindow):
         self.earLearnIndex = 5
 
         self.noteQuizIndex = 6
+        self.sightQuizIndex = 7
+        self.rhythmQuizIndex = 8
+        self.earQuizIndex = 9
+
         
         self.learnNotes.clicked.connect(lambda: self.toNoteLearn(pages))
         self.learnSight.clicked.connect(lambda: self.toSightLearn(pages))
         self.learnRhythm.clicked.connect(lambda: self.toRhythmLearn(pages))
         self.learnEar.clicked.connect(lambda: self.toEarLearn(pages))
+
         self.quizNotes.clicked.connect(lambda: self.toNoteQuiz(pages))
+        self.quizSight.clicked.connect(lambda: self.toSightQuiz(pages))
+        self.quizRhythm.clicked.connect(lambda: self.toRhythmQuiz(pages))
+        self.quizEar.clicked.connect(lambda: self.toEarQuiz(pages))
+
 
     def toNoteLearn(self, pages):
         pages.setCurrentIndex(self.noteLearnIndex)
@@ -56,6 +65,15 @@ class HomePage(QMainWindow):
 
     def toNoteQuiz(self, pages):
         pages.setCurrentIndex(self.noteQuizIndex)
+
+    def toSightQuiz(self, pages):
+        pages.setCurrentIndex(self.sightQuizIndex)
+
+    def toRhythmQuiz(self, pages):
+        pages.setCurrentIndex(self.rhythmQuizIndex)
+
+    def toEarQuiz(self, pages):
+        pages.setCurrentIndex(self.earQuizIndex)            
 
 
 
@@ -223,7 +241,7 @@ class QuizPage(QMainWindow):
             loadUi("note-rythQuiz.ui", self)
         
         elif quiz_type == 2:
-            loadUi("sight-earQuiz.ui", self)
+            loadUi("sight-earAudioQuiz.ui", self)
 
         self.text = []
         self.imagename = []
@@ -311,9 +329,9 @@ def main():
     earLearnPage = LearnPage2(pages, "Ear Training")
 
     noteQuizPage = QuizPage(pages, "Note Quiz", 1)
-    noteQuizPage = QuizPage(pages, "Rhythm Quiz", 1)
-    noteQuizPage = QuizPage(pages, "Sight Reading Quiz", 1)
-    noteQuizPage = QuizPage(pages, "Ear Training Quiz", 1)
+    sightQuizPage = QuizPage(pages, "Sight Reading Quiz", 2)
+    rhythmQuizPage = QuizPage(pages, "Rhythm Quiz", 1)
+    earQuizPage = QuizPage(pages, "Ear Training Quiz", 2)
 
 
     pages.addWidget(splashPage) # index 0
@@ -325,6 +343,10 @@ def main():
     pages.addWidget(earLearnPage) # index 5
 
     pages.addWidget(noteQuizPage) # index 6
+    pages.addWidget(sightQuizPage) # index 7
+    pages.addWidget(rhythmQuizPage) # index 8
+    pages.addWidget(earQuizPage) # index 9
+
 
     pages.show()
 
