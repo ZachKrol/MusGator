@@ -254,7 +254,7 @@ font: 36pt &quot;Tw Cen MT&quot;;</string>
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Minimum</enum>
+           <enum>QSizePolicy::MinimumExpanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -265,7 +265,7 @@ font: 36pt &quot;Tw Cen MT&quot;;</string>
          </spacer>
         </item>
         <item row="4" column="3">
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="selection4">
           <property name="text">
            <string>answer 4</string>
           </property>
@@ -351,7 +351,7 @@ font: 36pt &quot;Tw Cen MT&quot;;</string>
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="selection1">
           <property name="text">
            <string>answer 1</string>
           </property>
@@ -387,7 +387,7 @@ font: 36pt &quot;Tw Cen MT&quot;;</string>
          </spacer>
         </item>
         <item row="3" column="3">
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="selection3">
           <property name="text">
            <string>answer 3</string>
           </property>
@@ -431,11 +431,43 @@ p, li { white-space: pre-wrap; }
          </widget>
         </item>
         <item row="4" column="1">
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="selection2">
           <property name="text">
            <string>answer 2</string>
           </property>
          </widget>
+        </item>
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::MinimumExpanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="2">
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Minimum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </item>

@@ -239,6 +239,13 @@ class QuizPage(QMainWindow):
         
         if quiz_type == 1:
             loadUi("note-rythQuiz.ui", self)
+
+            self.selection1.clicked.connect(lambda: self.clickAnswerSelection(pages))
+            self.selection2.clicked.connect(lambda: self.clickAnswerSelection(pages))
+            self.selection3.clicked.connect(lambda: self.clickAnswerSelection(pages))
+            self.selection4.clicked.connect(lambda: self.clickAnswerSelection(pages))
+
+
         
         elif quiz_type == 2:
             loadUi("sight-earAudioQuiz.ui", self)
@@ -267,6 +274,23 @@ class QuizPage(QMainWindow):
 
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
+        self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
+
+
+    def clickAnswerButton(self, pages):
+        # add logic for checking correct answer
+        # need to set button as selected when answer is chosen to select it
+
+        # if selectedText == answer[index]
+            # set styling for correct
+        # else
+            # set styling for wrong
+        print("pressed")
+    
+
+    def clickAnswerSelection(self, pages):
+        print("chosen")
+
 
     def clickPreviousButton(self, pages):
         if self.index == 0:
