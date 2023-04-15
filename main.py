@@ -5,6 +5,7 @@ import banner.rc_banner as rc_banner
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import *
+import random
 
 # 0 - Splash page
 # 1 - Home page
@@ -120,6 +121,9 @@ class LearnPage1(QMainWindow):
             if self.index == 1:
                 self.previousButton.setText("Back")
             
+            if self.index == len(self.text) - 1:
+                self.nextButton.setText("Next")
+
             self.index = self.index - 1
             self.lessonTextLabel.setText(self.title[self.index])
             self.lessonText.setText(self.text[self.index])
@@ -196,6 +200,9 @@ class LearnPage2(QMainWindow):
         else:
             if self.index == 1:
                 self.previousButton.setText("Back")
+
+            if self.index == len(self.text) - 1:
+                self.nextButton.setText("Next")
             
             self.index = self.index - 1
             self.lessonTextLabel.setText(self.title[self.index])
@@ -232,23 +239,163 @@ class LearnPage2(QMainWindow):
 
 
 
-# Quiz Page
-class QuizPage(QMainWindow):
-    def __init__(self, pages, quiz_name, quiz_type):
-        super(QuizPage, self).__init__()
+# Quiz Page 1
+class QuizPage1(QMainWindow):
+    def __init__(self, pages, quiz_name):
+        super(QuizPage1, self).__init__()
         
-        if quiz_type == 1:
-            loadUi("note-rythQuiz.ui", self)
+        loadUi("note-rythQuiz.ui", self)
 
-            self.selection1.clicked.connect(lambda: self.clickAnswerSelection(pages))
-            self.selection2.clicked.connect(lambda: self.clickAnswerSelection(pages))
-            self.selection3.clicked.connect(lambda: self.clickAnswerSelection(pages))
-            self.selection4.clicked.connect(lambda: self.clickAnswerSelection(pages))
+        self.button_group = QButtonGroup()
+        self.button_group.setExclusive(True)
 
+        self.selection1.setCheckable(True)
+        self.selection2.setCheckable(True)
+        self.selection3.setCheckable(True)
+        self.selection4.setCheckable(True)
+
+        self.button_group.addButton(self.selection1)
+        self.button_group.addButton(self.selection2)
+        self.button_group.addButton(self.selection3)
+        self.button_group.addButton(self.selection4)
+        self.button_group.buttonClicked.connect(lambda: self.clickAnswerSelection())
+
+
+        self.text = []
+        self.imagename = []
+        self.answerChoices = []
+        self.correctAnswer = []
+
+        self.index = 0
+
+        with open('data.csv') as file:
+            csv_reader = csv.reader(file, delimiter=',')
+
+            for row in csv_reader:
+                    if row[0] == "Quiz":
+                        if row[1] == quiz_name:
+                            self.text.append(row[2])
+                            self.imagename.append(row[3])
+
+                            answers = [row[5], row[6], row[7], row[8]]
+                            random.shuffle(answers)
+                            self.answerChoices.append(answers)
+
+                            self.correctAnswer.append(row[9])
+
+        self.previousButton.setText("Back")
+        self.quizTitle.setText(quiz_name)
+        self.quizText.setText(self.text[self.index])
+
+        self.selection1.setText(self.answerChoices[self.index][0])
+        self.selection2.setText(self.answerChoices[self.index][1])
+        self.selection3.setText(self.answerChoices[self.index][2])
+        self.selection4.setText(self.answerChoices[self.index][3])
 
         
-        elif quiz_type == 2:
-            loadUi("sight-earAudioQuiz.ui", self)
+        scene = QGraphicsScene()
+        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        self.quizImage.setScene(scene)
+
+        self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
+        self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
+        self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
+
+
+    def clickAnswerButton(self, pages):
+        # add logic for checking correct answer
+        # need to set button as selected when answer is chosen to select it
+        if self.button_group.checkedButton().text() == self.correctAnswer[self.index]:
+            self.button_group.checkedButton().setStyleSheet("background-color: green; color: rgb(255, 255, 255);")
+        else:
+            self.button_group.checkedButton().setStyleSheet("background-color: red; color: rgb(255, 255, 255);")
+    
+
+    def clickAnswerSelection(self):
+        self.button_group.checkedButton().setStyleSheet("background-color: #18A0FB; color: rgb(255, 255, 255);")
+
+
+    def clickPreviousButton(self, pages):
+        if self.index == 0:
+            pages.setCurrentIndex(1) # Return to home page
+        
+        else:
+            if self.index == 1:
+                self.previousButton.setText("Back")
+
+            if self.index == len(self.text) - 1:
+                self.nextButton.setText("Next")
+
+            self.index = self.index - 1
+            self.quizText.setText(self.text[self.index])
+
+            self.selection1.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+            self.selection2.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+            self.selection3.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+            self.selection4.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+
+            self.selection1.setText(self.answerChoices[self.index][0])
+            self.selection2.setText(self.answerChoices[self.index][1])
+            self.selection3.setText(self.answerChoices[self.index][2])
+            self.selection4.setText(self.answerChoices[self.index][3])
+
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.quizImage.setScene(scene)
+
+    def clickNextButton(self, pages):
+        if self.index == len(self.text) - 1:
+            pages.setCurrentIndex(1) # Return to home page
+            self.nextButton.setText("Next")
+            self.index = 0
+
+            self.quizText.setText(self.text[self.index])
+
+            self.selection1.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+            self.selection2.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+            self.selection3.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+            self.selection4.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+
+            self.selection1.setText(self.answerChoices[self.index][0])
+            self.selection2.setText(self.answerChoices[self.index][1])
+            self.selection3.setText(self.answerChoices[self.index][2])
+            self.selection4.setText(self.answerChoices[self.index][3])
+
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.quizImage.setScene(scene)
+        
+        else:
+            if self.index == len(self.text) - 2:
+                self.nextButton.setText("Finish")
+            
+            if self.index == 0:
+                self.previousButton.setText("Previous")
+
+            self.index = self.index + 1
+            self.quizText.setText(self.text[self.index])
+
+            self.selection1.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+            self.selection2.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+            self.selection3.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+            self.selection4.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+
+            self.selection1.setText(self.answerChoices[self.index][0])
+            self.selection2.setText(self.answerChoices[self.index][1])
+            self.selection3.setText(self.answerChoices[self.index][2])
+            self.selection4.setText(self.answerChoices[self.index][3])
+
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.quizImage.setScene(scene)
+
+
+# Quiz Page 2
+class QuizPage2(QMainWindow):
+    def __init__(self, pages, quiz_name):
+        super(QuizPage2, self).__init__()
+        
+        loadUi("sight-earAudioQuiz.ui", self)
 
         self.text = []
         self.imagename = []
@@ -286,10 +433,6 @@ class QuizPage(QMainWindow):
         # else
             # set styling for wrong
         print("pressed")
-    
-
-    def clickAnswerSelection(self, pages):
-        print("chosen")
 
 
     def clickPreviousButton(self, pages):
@@ -300,6 +443,9 @@ class QuizPage(QMainWindow):
             if self.index == 1:
                 self.previousButton.setText("Back")
             
+            if self.index == len(self.text) - 1:
+                self.nextButton.setText("Next")
+
             self.index = self.index - 1
             self.quizText.setText(self.text[self.index])
 
@@ -352,10 +498,10 @@ def main():
     rhythmLearnPage = LearnPage1(pages, "Rhythm")
     earLearnPage = LearnPage2(pages, "Ear Training")
 
-    noteQuizPage = QuizPage(pages, "Note Quiz", 1)
-    sightQuizPage = QuizPage(pages, "Sight Reading Quiz", 2)
-    rhythmQuizPage = QuizPage(pages, "Rhythm Quiz", 1)
-    earQuizPage = QuizPage(pages, "Ear Training Quiz", 2)
+    noteQuizPage = QuizPage1(pages, "Note Quiz")
+    sightQuizPage = QuizPage2(pages, "Sight Reading Quiz")
+    rhythmQuizPage = QuizPage1(pages, "Rhythm Quiz")
+    earQuizPage = QuizPage2(pages, "Ear Training Quiz")
 
 
     pages.addWidget(splashPage) # index 0

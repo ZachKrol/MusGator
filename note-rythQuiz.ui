@@ -388,6 +388,9 @@ font: 36pt &quot;Tw Cen MT&quot;;</string>
         </item>
         <item row="3" column="3">
          <widget class="QPushButton" name="selection3">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string>answer 3</string>
           </property>

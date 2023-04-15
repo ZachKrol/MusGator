@@ -44,7 +44,7 @@ Lesson,Note Learning,D ,,sight20.jpg
 Lesson,Note Learning,G ,,sight21.jpg
 Lesson,Note Learning,C ,,sight22.jpg
 Lesson,Note Learning,F ,,sight23.jpg
-Lesson,Note Learning,C,,sight24.jpg
+Lesson,Note Learning,C ,,sight24.jpg
 Lesson,Sight Reading,Title 1,Text 1,staff1.jpg
 Lesson,Sight Reading,Title 2,Text 2,staff2.jpg
 Lesson,Sight Reading,Title 3,Text 3,staff3.jpg
@@ -58,10 +58,10 @@ Lesson,Ear Training,Title 4,Practice by listening to each note,F.jpg
 Lesson,Ear Training,Title 5,Practice by listening to each note,G.jpg
 Lesson,Ear Training,Title 6,Practice by listening to each note,A.jpg
 Lesson,Ear Training,Title 7,Practice by listening to each note,B.jpg
-Quiz,Note Quiz,Title 1,Text 1,lesson1.jpg
-Quiz,Note Quiz,Title 2,Text 2,lesson1.jpg
-Quiz,Rhythm Quiz,Title 1,Text 1,lesson1.jpg
-Quiz,Rhythm Quiz,Title 2,Text 2,lesson1.jpg
+Quiz,Note Quiz,Title 1,Text 1,lesson1.jpg,wrong 1,wrong 2,wrong 3,correct,correct
+Quiz,Note Quiz,Title 2,Text 2,lesson1.jpg,wrong 1,wrong 2,wrong 3,correct,correct
+Quiz,Rhythm Quiz,Title 1,Text 1,lesson1.jpg,wrong 1,wrong 2,wrong 3,correct,correct
+Quiz,Rhythm Quiz,Title 2,Text 2,lesson1.jpg,wrong 1,wrong 2,wrong 3,correct,correct
 Quiz,Sight Reading Quiz,Title 1,Text 1,lesson1.jpg
 Quiz,Sight Reading Quiz,Title 2,Text 2,lesson1.jpg
 Quiz,Ear Training Quiz,Title 1,Text 1,lesson1.jpg
