@@ -6,6 +6,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import *
 import random
+import audio_framework as af
+from PyQt5.QtCore import QThreadPool, QRunnable
 
 # 0 - Splash page
 # 1 - Home page
@@ -170,9 +172,7 @@ class LearnPage2(QMainWindow):
 
         self.title = []
         self.imagename = []
-
         self.index = 0
-
         with open('data.csv') as file:
             csv_reader = csv.reader(file, delimiter=',')
 
@@ -192,6 +192,7 @@ class LearnPage2(QMainWindow):
 
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
+        self.playAudioButton.clicked.connect(lambda: self.clickPlayAudioButton())
 
     def clickPreviousButton(self, pages):
         if self.index == 0:
@@ -212,7 +213,7 @@ class LearnPage2(QMainWindow):
             self.lessonImage.setScene(scene)
 
     def clickNextButton(self, pages):
-        if self.index == len(self.text) - 1:
+        if self.index == len(self.title) - 1:
             pages.setCurrentIndex(1) # Return to home page
             self.nextButton.setText("Next")
             self.index = 0
@@ -224,7 +225,7 @@ class LearnPage2(QMainWindow):
             self.lessonImage.setScene(scene)
         
         else:
-            if self.index == len(self.text) - 2:
+            if self.index == len(self.title) - 2:
                 self.nextButton.setText("Finish")
             
             if self.index == 0:
@@ -236,15 +237,18 @@ class LearnPage2(QMainWindow):
             scene = QGraphicsScene()
             scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
             self.lessonImage.setScene(scene)
+    def clickPlayAudioButton(self):
+        af.play_note(24 + af.notes.note_to_int(af.scales.get_notes("C")[self.index]))
+            
 
 
+# Quiz Page
+class QuizPage(QMainWindow):
+    def __init__(self, pages, quiz_name, quiz_type):
+        super(QuizPage, self).__init__()
 
-# Quiz Page 1
-class QuizPage1(QMainWindow):
-    def __init__(self, pages, quiz_name):
-        super(QuizPage1, self).__init__()
-        
-        loadUi("note-rythQuiz.ui", self)
+        if quiz_type == 1:
+            loadUi("note-rythQuiz.ui", self)
 
         self.button_group = QButtonGroup()
         self.button_group.setExclusive(True)
@@ -397,9 +401,12 @@ class QuizPage2(QMainWindow):
         
         loadUi("sight-earAudioQuiz.ui", self)
 
+        self.startStopButton.clicked.connect(lambda: self.play_notes_in_thread())
+
         self.text = []
         self.imagename = []
-
+        self.audioThread = None
+        self.interruptAudio = False
         self.index = 0
 
         with open('data.csv') as file:
@@ -423,7 +430,11 @@ class QuizPage2(QMainWindow):
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
         self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
 
-
+    def play_notes_in_thread(self):
+        if(self.audioThread == None):   
+            self.audioThread = af.threading.Thread(target=self.playNotes)
+            self.audioThread.start()
+    
     def clickAnswerButton(self, pages):
         # add logic for checking correct answer
         # need to set button as selected when answer is chosen to select it
@@ -436,6 +447,7 @@ class QuizPage2(QMainWindow):
 
 
     def clickPreviousButton(self, pages):
+        self.interruptAudio = True
         if self.index == 0:
             pages.setCurrentIndex(1) # Return to home page
         
@@ -454,6 +466,7 @@ class QuizPage2(QMainWindow):
             self.quizImage.setScene(scene)
 
     def clickNextButton(self, pages):
+        self.interruptAudio = True
         if self.index == len(self.text) - 1:
             pages.setCurrentIndex(1) # Return to home page
             self.nextButton.setText("Next")
@@ -478,7 +491,13 @@ class QuizPage2(QMainWindow):
             scene = QGraphicsScene()
             scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
             self.quizImage.setScene(scene)
-
+    def playNotes(self):
+        for i in range(len(af.scales.get_notes("C"))):
+            if not self.interruptAudio:
+                af.play_note(24 + af.notes.note_to_int(af.scales.get_notes("C")[i]))
+                af.time.sleep(1)
+        self.audioThread = None
+        self.interruptAudio = False
 
 def main():
     app = QApplication(sys.argv)
@@ -503,7 +522,7 @@ def main():
     rhythmQuizPage = QuizPage1(pages, "Rhythm Quiz")
     earQuizPage = QuizPage2(pages, "Ear Training Quiz")
 
-
+    
     pages.addWidget(splashPage) # index 0
     pages.addWidget(homePage) # index 1
 
@@ -516,7 +535,7 @@ def main():
     pages.addWidget(sightQuizPage) # index 7
     pages.addWidget(rhythmQuizPage) # index 8
     pages.addWidget(earQuizPage) # index 9
-
+    pages.audioThread = None
 
     pages.show()
 

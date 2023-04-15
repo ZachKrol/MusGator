@@ -6,7 +6,9 @@ import time
 import threading
 import pygame.midi as midi
 from mingus.containers import Note
-notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+import mingus.core.notes as notes
+import mingus.core.scales as scales
+main_notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
 def get_pitch(signal):
     pitch_detector = aubio.pitch("default", 2048, 2048 // 2, 44100)
@@ -23,7 +25,7 @@ def pitch_to_note(pitch):
     pitch_index = np.abs(standard_pitches - pitch).argmin()
     
     # Map the pitch to the nearest musical note
-    note = notes[pitch_index % 12]
+    note = main_notes[pitch_index % 12]
     octave = pitch_index // 12 - 1
     
     return note + str(octave)
@@ -60,7 +62,6 @@ def play_note(note):
     timer = threading.Timer(1, play_note_helper, [player, note + 24])
     timer.start()
 def ear_train(note, duration):
-    
     play_note(note)
     match_note(note, duration)
 def ear_train_multiple(notes):
@@ -73,4 +74,4 @@ def ear_train_multiple(notes):
 midi.init()
 player = midi.Output(midi.get_default_output_id())
 player.set_instrument(0)
-ear_train_multiple([24, 26, 28, 29, 31])
+#ear_train_multiple([24, 26, 28, 29, 31])
