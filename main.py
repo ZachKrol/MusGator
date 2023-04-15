@@ -431,9 +431,11 @@ class QuizPage2(QMainWindow):
         self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
 
     def play_notes_in_thread(self):
-        if(self.audioThread == None):   
+        if self.audioThread == None:   
             self.audioThread = af.threading.Thread(target=self.playNotes)
             self.audioThread.start()
+        else:
+            self.interruptAudio = True
     
     def clickAnswerButton(self, pages):
         # add logic for checking correct answer
