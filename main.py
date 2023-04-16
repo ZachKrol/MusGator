@@ -239,8 +239,99 @@ class LearnPage2(QMainWindow):
             self.lessonImage.setScene(scene)
     def clickPlayAudioButton(self):
         af.play_note(24 + af.notes.note_to_int(af.scales.get_notes("C")[self.index]))
+
+
+# Learn Page 3 (sight reading)
+class LearnPage3(QMainWindow):
+    def __init__(self, pages, lesson_name):
+        super(LearnPage3, self).__init__()
+
+        loadUi("sight-earLesson.ui", self)
+
+        self.title = []
+        self.imagename = []
+        self.index = 0
+
+        self.noteSequence = []
+        self.noteDuration = []
+
+        with open('data.csv') as file:
+            csv_reader = csv.reader(file, delimiter=',')
+
+            for row in csv_reader:
+                    if row[0] == "Lesson":
+                        if row[1] == lesson_name:
+                            self.title.append(row[2])
+                            self.imagename.append(row[4])
+
+                            notes_in_sequence = int(row[5])
+                            temp_notes = []
+                            temp_durations = []
+
+                            for i in range(notes_in_sequence):
+                                temp_notes.append(12 + af.notes.note_to_int(row[6 + i][0]) + (int(row[6 + i][1]) - 3) * 12)
+                                temp_durations.append(float(row[6 + notes_in_sequence + i]))
+                            self.noteSequence.append(temp_notes)
+                            self.noteDuration.append(temp_durations)
+
+        self.previousButton.setText("Back")
+        self.lessonTitle.setText(lesson_name)
+        self.lessonTextLabel.setText(self.title[self.index])
         
+        scene = QGraphicsScene()
+        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        self.lessonImage.setScene(scene)
+
+        self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
+        self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
+        self.playAudioButton.clicked.connect(lambda: self.clickPlayAudioButton())
+
+    def clickPreviousButton(self, pages):
+        if self.index == 0:
+            pages.setCurrentIndex(1) # Return to home page
+        
+        else:
+            if self.index == 1:
+                self.previousButton.setText("Back")
+
+            if self.index == len(self.title) - 1:
+                self.nextButton.setText("Next")
             
+            self.index = self.index - 1
+            self.lessonTextLabel.setText(self.title[self.index])
+
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.lessonImage.setScene(scene)
+
+    def clickNextButton(self, pages):
+        if self.index == len(self.title) - 1:
+            pages.setCurrentIndex(1) # Return to home page
+            self.nextButton.setText("Next")
+            self.index = 0
+
+            self.lessonTextLabel.setText(self.title[self.index])
+
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.lessonImage.setScene(scene)
+        
+        else:
+            if self.index == len(self.title) - 2:
+                self.nextButton.setText("Finish")
+            
+            if self.index == 0:
+                self.previousButton.setText("Previous")
+
+            self.index = self.index + 1
+            self.lessonTextLabel.setText(self.title[self.index])
+
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.lessonImage.setScene(scene)
+    def clickPlayAudioButton(self):
+        af.play_note_sequence(self.noteSequence[self.index], self.noteDuration[self.index])
+
 
 
 # Quiz Page 1
@@ -536,7 +627,7 @@ def main():
     homePage = HomePage(pages)
 
     noteLearnPage = LearnPage1(pages, "Note Learning")
-    sightLearnPage = LearnPage2(pages, "Sight Reading")
+    sightLearnPage = LearnPage3(pages, "Sight Reading")
     rhythmLearnPage = LearnPage1(pages, "Rhythm")
     earLearnPage = LearnPage2(pages, "Ear Training")
 
