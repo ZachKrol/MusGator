@@ -6,7 +6,12 @@ import time
 import threading
 import pygame.midi as midi
 from mingus.containers import Note
-notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+from PyQt5.QtWidgets import * 
+from PyQt5.QtGui import * 
+import mingus.core.scales as scales
+import mingus.core.notes as notes
+
+main_notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
 def get_pitch(signal):
     pitch_detector = aubio.pitch("default", 2048, 2048 // 2, 44100)
@@ -23,29 +28,48 @@ def pitch_to_note(pitch):
     pitch_index = np.abs(standard_pitches - pitch).argmin()
     
     # Map the pitch to the nearest musical note
-    note = notes[pitch_index % 12]
+    note = main_notes[pitch_index % 12]
     octave = pitch_index // 12 - 1
     
     return note + str(octave)
-def match_note(target_note, duration):
+def match_note(target_note, duration, self):
     c = Note()
     c.from_int(target_note)
+
     p = pyaudio.PyAudio()
     stream = p.open(format=pyaudio.paFloat32, channels=1, rate=44100, input=True, frames_per_buffer=2048)
     note_held_time = 0.0
+
+    startTime = time.time()
+    endTime = time.time()
+
     while True:
+        if self.interruptListening:
+            return False
         data = stream.read(1024, exception_on_overflow=False)
         signal = np.frombuffer(data, dtype=np.float32)
         pitch = get_pitch(signal)
         note = pitch_to_note(pitch)
         if pitch > 0:
             if note == c.name + str(c.octave):
+                print(f'Your last note was {note}. Keep going!')
                 note_held_time += 1024/44100 # increment the note held time by the buffer length
                 if note_held_time >= duration:
+                    print(f'You matched the note!')
                     break # exit the loop if the note has been held for more than two seconds
             elif note_held_time > 0:
+                print(f'Your last note was {note}. Try Again')
                 note_held_time -= 1024/44100 # decrement the note held time if the note changes
-       # print(note, note_held_time)
+            else:
+                print(f'Your last note was {note}. Try Again')
+        # print(note, note_held_time)
+        #app.processEvents()
+        endTime = time.time()
+        elapsedTime = endTime - startTime
+        if elapsedTime > 5:
+            print(f'You didn\'t match the note within 5 seconds. Try Again')
+            return False
+        
     return True
 
 def midi_quit():
@@ -73,4 +97,4 @@ def ear_train_multiple(notes):
 midi.init()
 player = midi.Output(midi.get_default_output_id())
 player.set_instrument(0)
-ear_train_multiple([24, 26, 28, 29, 31])
+# ear_train_multiple([24, 26, 28, 29, 31])
