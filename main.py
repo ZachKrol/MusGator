@@ -279,7 +279,7 @@ class QuizPage1(QMainWindow):
                     if row[0] == "Quiz":
                         if row[1] == quiz_name:
                             self.text.append(row[2])
-                            self.imagename.append(row[3])
+                            self.imagename.append(row[4])
 
                             answers = [row[5], row[6], row[7], row[8]]
                             random.shuffle(answers)
