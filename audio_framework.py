@@ -8,7 +8,10 @@ import pygame.midi as midi
 from mingus.containers import Note
 from PyQt5.QtWidgets import * 
 from PyQt5.QtGui import * 
-notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+import mingus.core.scales as scales
+import mingus.core.notes as notes
+
+main_notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
 def get_pitch(signal):
     pitch_detector = aubio.pitch("default", 2048, 2048 // 2, 44100)
@@ -25,11 +28,11 @@ def pitch_to_note(pitch):
     pitch_index = np.abs(standard_pitches - pitch).argmin()
     
     # Map the pitch to the nearest musical note
-    note = notes[pitch_index % 12]
+    note = main_notes[pitch_index % 12]
     octave = pitch_index // 12 - 1
     
     return note + str(octave)
-def match_note(target_note, duration, self, app):
+def match_note(target_note, duration, self):
     c = Note()
     c.from_int(target_note)
 
@@ -41,26 +44,31 @@ def match_note(target_note, duration, self, app):
     endTime = time.time()
 
     while True:
+        if self.interruptListening:
+            return False
         data = stream.read(1024, exception_on_overflow=False)
         signal = np.frombuffer(data, dtype=np.float32)
         pitch = get_pitch(signal)
         note = pitch_to_note(pitch)
         if pitch > 0:
             if note == c.name + str(c.octave):
+                print(f'Your last note was {note}. Keep going!')
                 note_held_time += 1024/44100 # increment the note held time by the buffer length
                 if note_held_time >= duration:
-                    self.outputLabel.setText(f'You matched the note!')
+                    print(f'You matched the note!')
                     break # exit the loop if the note has been held for more than two seconds
             elif note_held_time > 0:
+                print(f'Your last note was {note}. Try Again')
                 note_held_time -= 1024/44100 # decrement the note held time if the note changes
+            else:
+                print(f'Your last note was {note}. Try Again')
         # print(note, note_held_time)
-        self.outputLabel.setText(f'Your last note was {note}. Try Again')
-        app.processEvents()
+        #app.processEvents()
         endTime = time.time()
         elapsedTime = endTime - startTime
         if elapsedTime > 5:
-            self.outputLabel.setText(f'You didn\'t match the note within 5 seconds. Try Again')
-            break
+            print(f'You didn\'t match the note within 5 seconds. Try Again')
+            return False
         
     return True
 

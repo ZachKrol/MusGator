@@ -239,16 +239,16 @@ class LearnPage2(QMainWindow):
             self.lessonImage.setScene(scene)
     def clickPlayAudioButton(self):
         af.play_note(24 + af.notes.note_to_int(af.scales.get_notes("C")[self.index]))
+        
             
 
 
-# Quiz Page
-class QuizPage(QMainWindow):
-    def __init__(self, pages, quiz_name, quiz_type):
-        super(QuizPage, self).__init__()
+# Quiz Page 1
+class QuizPage1(QMainWindow):
+    def __init__(self, pages, quiz_name):
+        super(QuizPage1, self).__init__()
 
-        if quiz_type == 1:
-            loadUi("note-rythQuiz.ui", self)
+        loadUi("note-rythQuiz.ui", self)
 
         self.button_group = QButtonGroup()
         self.button_group.setExclusive(True)
@@ -400,8 +400,13 @@ class QuizPage2(QMainWindow):
         super(QuizPage2, self).__init__()
         
         loadUi("sight-earAudioQuiz.ui", self)
-
+        
+        self.listeningThread = None
+        self.interruptListening = False
+        self.noteSequence = af.scales.get_notes("C")
+        self.curNoteIndex = 0
         self.startStopButton.clicked.connect(lambda: self.play_notes_in_thread())
+        self.answerButton.clicked.connect(lambda: self.listen_in_thread())
 
         self.text = []
         self.imagename = []
@@ -436,6 +441,20 @@ class QuizPage2(QMainWindow):
             self.audioThread.start()
         else:
             self.interruptAudio = True
+    def listen_in_thread(self):
+        if self.listeningThread == None:   
+            self.listeningThread = af.threading.Thread(target=self.check_pitch)
+            self.listeningThread.start()
+        else:
+            self.interruptListening = True
+    
+    
+    def check_pitch(self):
+        if(af.match_note(24 + af.notes.note_to_int(self.noteSequence[self.curNoteIndex]), 0.5, self)):
+            self.curNoteIndex+=1
+        self.listeningThread = None
+        self.interruptListening = False
+        
     
     def clickAnswerButton(self, pages):
         # add logic for checking correct answer
@@ -494,9 +513,9 @@ class QuizPage2(QMainWindow):
             scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
             self.quizImage.setScene(scene)
     def playNotes(self):
-        for i in range(len(af.scales.get_notes("C"))):
+        for i in range(self.curNoteIndex, len(self.noteSequence)):
             if not self.interruptAudio:
-                af.play_note(24 + af.notes.note_to_int(af.scales.get_notes("C")[i]))
+                af.play_note(24 + af.notes.note_to_int(self.noteSequence[i]))
                 af.time.sleep(1)
         self.audioThread = None
         self.interruptAudio = False
