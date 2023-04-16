@@ -44,7 +44,7 @@ Lesson,Note Learning,D ,,sight20.jpg
 Lesson,Note Learning,G ,,sight21.jpg
 Lesson,Note Learning,C ,,sight22.jpg
 Lesson,Note Learning,F ,,sight23.jpg
-Lesson,Note Learning,C,,sight24.jpg
+Lesson,Note Learning,C ,,sight24.jpg
 Lesson,Sight Reading,Title 1,Text 1,staff1.jpg
 Lesson,Sight Reading,Title 2,Text 2,staff2.jpg
 Lesson,Sight Reading,Title 3,Text 3,staff3.jpg
@@ -58,5 +58,22 @@ Lesson,Ear Training,Title 4,Practice by listening to each note,F.jpg
 Lesson,Ear Training,Title 5,Practice by listening to each note,G.jpg
 Lesson,Ear Training,Title 6,Practice by listening to each note,A.jpg
 Lesson,Ear Training,Title 7,Practice by listening to each note,B.jpg
-Quiz,Rhythm,Title 1,Text 1,lesson1.jpg
-Quiz,Rhythm,Title 2,Text 2,lesson1.jpg
+Quiz,Sight Reading Quiz,Title 1,Text 1,lesson1.jpg
+Quiz,Sight Reading Quiz,Title 2,Text 2,lesson1.jpg
+Quiz,Ear Training Quiz,Title 1,Text 1,lesson1.jpg
+Quiz,Ear Training Quiz,Title 2,Text 2,lesson1.jpg
+Quiz,Rhythm Quiz,Title1,The space between two Bar lines where music is written. How many beats is determined by the Time Signature.,pic2.jpg,Dotted Half Note,Quarter Note,Measure,Repeat Sign,Measure
+Quiz,Rhythm Quiz,Title1,4 beats of sound,pic3.jpg,Half Note,Whole Note,Eighth Rest,Double Bar Line,Whole Note
+Quiz,Rhythm Quiz,Title1,4 beats of silence,pic4.jpg,Half Rest,Whole Note,Whole Rest,Tie,Whole Rest
+Quiz,Rhythm Quiz,Title1,3 beats of sound,pic5.jpg,Dotted Half Note,Group of 4 Sixteenth Notes,Bar Line,Quarter Rest,Dotted Half Note
+Quiz,Rhythm Quiz,Title1,2 beats of sound,pic6.jpg,Pair of Eighth Notes,Double Bar Line,Single Eighth Note,Half Note,Half Note
+Quiz,Rhythm Quiz,Title1,2 beats of silence,pic7.jpg,Single Eighth Note,Half Rest,Half Note,Quarter Rest,Half Rest
+Quiz,Rhythm Quiz,Title1,1 beat of sound,pic8.jpg,Quarter Note,Dotted Half Note,Group of 4 Sixteenth Notes,Single Eighth Note,Quarter Note
+Quiz,Rhythm Quiz,Title1,1 beat of silence,pic9.jpg,Single Eighth Note,Quarter Rest,Dotted Quarter Note,Bar Line,Quarter Rest
+Quiz,Note Quiz,,What note is this?,sight1.jpg,A,D,E,F,D 
+Quiz,Note Quiz,,What note is this?,sight2.jpg,F,A,C,D,F 
+Quiz,Note Quiz,,What note is this?,sight3.jpg,B,G,C,B,C 
+Quiz,Note Quiz,,What note is this?,sight4.jpg,C,B,E,C,E 
+Quiz,Note Quiz,,What note is this?,sight5.jpg,B,A,G,E,B 
+Quiz,Note Quiz,,What note is this?,sight6.jpg,A,C,D,G,G 
+Quiz,Note Quiz,,What note is this?,sight7.jpg,G,F,D,E,D 
