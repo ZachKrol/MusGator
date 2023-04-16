@@ -35,6 +35,7 @@ def pitch_to_note(pitch):
 def match_note(target_note, duration, self, app):
     c = Note()
     c.from_int(target_note)
+    self.quizText.setText(f'Listening for note: {c.name}')
 
     p = pyaudio.PyAudio()
     stream = p.open(format=pyaudio.paFloat32, channels=1, rate=44100, input=True, frames_per_buffer=2048)
@@ -60,18 +61,18 @@ def match_note(target_note, duration, self, app):
                     # print(f'You matched the note!')
                     break # exit the loop if the note has been held for more than two seconds
             elif note_held_time > 0:
-                self.quizText.setText(f'Your last note was {note}. Try Again')
+                self.quizText.setText(f'Your last note was {note}. Keep Trying!')
                 # print(f'Your last note was {note}. Try Again')
                 note_held_time -= 1024/44100 # decrement the note held time if the note changes
             else:
-                self.quizText.setText(f'Your last note was {note}. Try Again')
+                self.quizText.setText(f'Your last note was {note}. Keep Trying!')
                 # print(f'Your last note was {note}. Try Again')
         # print(note, note_held_time)
         app.processEvents()
         endTime = time.time()
         elapsedTime = endTime - startTime
         if elapsedTime > 5:
-            self.quizText.setText(f'You didn\'t match the note within 5 seconds. Try Again')
+            self.quizText.setText(f'You didn\'t match the note: {c.name}. Try Again.')
             # print(f'You didn\'t match the note within 5 seconds. Try Again')
             return False
         
