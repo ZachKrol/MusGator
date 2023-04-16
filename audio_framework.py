@@ -84,7 +84,13 @@ def midi_quit():
 
 def play_note_helper(player, note):
     player.note_off(note, 127)
-    
+def play_note_sequence(note_sequence, duration):
+    for i in range(len(duration)):
+        player.note_on(note_sequence[i] + 24, 127)
+        timer = threading.Timer(duration[i], play_note_helper, [player, note_sequence[i] + 24])
+        timer.start()
+        time.sleep(duration[i])
+
 def play_note(note):
     player.note_on(note + 24, 127) # the pygame midi is offset by two octaves for some reason
     timer = threading.Timer(1, play_note_helper, [player, note + 24])

@@ -21,36 +21,36 @@ Lesson,Rhythm,Single Sixteenth Note,1/4 beat of sound,pic19.jpg
 Lesson,Rhythm,Sixteenth Rest,1/4 beat of silence,pic20.jpg
 Lesson,Rhythm,3/4 Time Signature,3 beats per measure,pic21.jpg
 Lesson,Rhythm,Tie,A curved line that connects the heads of two notes together to create a longer sound (equal to both added together),pic22.jpg
-Lesson,Note Learning,,D ,sight1.jpg
-Lesson,Note Learning,,F ,sight2.jpg
-Lesson,Note Learning,,Middle C ,sight3.jpg
-Lesson,Note Learning,,E ,sight4.jpg
-Lesson,Note Learning,,B ,sight5.jpg
-Lesson,Note Learning,,G ,sight6.jpg
-Lesson,Note Learning,,D ,sight7.jpg 
-Lesson,Note Learning,,A ,sight8.jpg
-Lesson,Note Learning,,C ,sight9.jpg
-Lesson,Note Learning,,G ,sight10.jpg
-Lesson,Note Learning,,E ,sight11.jpg
-Lesson,Note Learning,,F ,sight12.jpg
-Lesson,Note Learning,,A ,sight13.jpg
-Lesson,Note Learning,,E ,sight14.jpg
-Lesson,Note Learning,,B ,sight15.jpg
-Lesson,Note Learning,,F ,sight16.jpg
-Lesson,Note Learning,,B ,sight17.jpg
-Lesson,Note Learning,,G ,sight18.jpg
-Lesson,Note Learning,,A ,sight19.jpg
-Lesson,Note Learning,,D ,sight20.jpg
-Lesson,Note Learning,,G ,sight21.jpg
-Lesson,Note Learning,,C ,sight22.jpg
-Lesson,Note Learning,,F ,sight23.jpg
-Lesson,Note Learning,,C ,sight24.jpg
-Lesson,Sight Reading,Title 1,Text 1,staff1.jpg
-Lesson,Sight Reading,Title 2,Text 2,staff2.jpg
-Lesson,Sight Reading,Title 3,Text 3,staff3.jpg
-Lesson,Sight Reading,Title 4,Text 4,staff4.jpg
-Lesson,Sight Reading,Title 5,Text 5,staff5.jpg
-Lesson,Sight Reading,Title 6,Text 6,staff6.jpg
+Lesson,Note Learning,D ,,sight1.jpg
+Lesson,Note Learning,F ,,sight2.jpg
+Lesson,Note Learning,Middle C ,,sight3.jpg
+Lesson,Note Learning,E ,,sight4.jpg
+Lesson,Note Learning,B ,,sight5.jpg
+Lesson,Note Learning,G ,,sight6.jpg
+Lesson,Note Learning,D ,,sight7.jpg
+Lesson,Note Learning,A ,,sight8.jpg
+Lesson,Note Learning,C ,,sight9.jpg
+Lesson,Note Learning,G ,,sight10.jpg
+Lesson,Note Learning,E ,,sight11.jpg
+Lesson,Note Learning,F ,,sight12.jpg
+Lesson,Note Learning,A ,,sight13.jpg
+Lesson,Note Learning,E ,,sight14.jpg
+Lesson,Note Learning,B ,,sight15.jpg
+Lesson,Note Learning,F ,,sight16.jpg
+Lesson,Note Learning,B ,,sight17.jpg
+Lesson,Note Learning,G ,,sight18.jpg
+Lesson,Note Learning,A ,,sight19.jpg
+Lesson,Note Learning,D ,,sight20.jpg
+Lesson,Note Learning,G ,,sight21.jpg
+Lesson,Note Learning,C ,,sight22.jpg
+Lesson,Note Learning,F ,,sight23.jpg
+Lesson,Note Learning,C ,,sight24.jpg
+Lesson,Sight Reading,Title 1,Text 1,staff1.jpg,4,C4,D4,E4,C4,.5,.5,.5,.5
+Lesson,Sight Reading,Title 2,Text 2,staff2.jpg,3,C4,B3,C4,.5,.5,1
+Lesson,Sight Reading,Title 3,Text 3,staff3.jpg,4,C4,D4,E4,F4,.5,.5,.5,.5
+Lesson,Sight Reading,Title 4,Text 4,staff4.jpg,3,E4,D4,C4,.5,.5,1
+Lesson,Sight Reading,Title 5,Text 5,staff5.jpg,3,C5,B4,A4,1,.5,.5
+Lesson,Sight Reading,Title 6,Text 6,staff6.jpg,3,G4,A4,B4,1,.5,.5
 Lesson,Ear Training,Title 1,Practice by listening to each note,C.jpg
 Lesson,Ear Training,Title 2,Practice by listening to each note,D.jpg
 Lesson,Ear Training,Title 3,Practice by listening to each note,E.jpg
@@ -66,13 +66,13 @@ Quiz,Rhythm Quiz,2 beats of sound,,pic6.jpg,Pair of Eighth Notes,Double Bar Line
 Quiz,Rhythm Quiz,2 beats of silence,,pic7.jpg,Single Eighth Note,Half Rest,Half Note,Quarter Rest,Half Rest
 Quiz,Rhythm Quiz,1 beat of sound,,pic8.jpg,Quarter Note,Dotted Half Note,Group of 4 Sixteenth Notes,Single Eighth Note,Quarter Note
 Quiz,Rhythm Quiz,1 beat of silence,,pic9.jpg,Single Eighth Note,Quarter Rest,Dotted Quarter Note,Bar Line,Quarter Rest
-Quiz,Note Quiz,,What note is this?,sight1.jpg,A,C,E,D,D 
-Quiz,Note Quiz,,What note is this?,sight2.jpg,D,A,C,F,F 
-Quiz,Note Quiz,,What note is this?,sight3.jpg,B,G,C,B,C 
-Quiz,Note Quiz,,What note is this?,sight4.jpg,C,B,E,C,E 
-Quiz,Note Quiz,,What note is this?,sight5.jpg,B,A,G,E,B 
-Quiz,Note Quiz,,What note is this?,sight6.jpg,A,C,D,G,G 
-Quiz,Note Quiz,,What note is this?,sight7.jpg,G,F,D,E,D 
+Quiz,Note Quiz,,What note is this?,sight1.jpg,A,C,E,D,D
+Quiz,Note Quiz,,What note is this?,sight2.jpg,D,A,C,F,F
+Quiz,Note Quiz,,What note is this?,sight3.jpg,B,G,C,E,C
+Quiz,Note Quiz,,What note is this?,sight4.jpg,C,B,E,G,E
+Quiz,Note Quiz,,What note is this?,sight5.jpg,B,A,G,E,B
+Quiz,Note Quiz,,What note is this?,sight6.jpg,A,C,D,G,G
+Quiz,Note Quiz,,What note is this?,sight7.jpg,G,F,D,E,D
 Quiz,Sight Reading Quiz,Play this measure of music. Press the start/stop button before and after you play. ,,staff1.jpg
 Quiz,Sight Reading Quiz,Play this measure of music. Press the start/stop button before and after you play. ,,staff3.jpg
 Quiz,Ear Training Quiz,Listen to the sound and try to replicate it within 5 seconds. ,C,C.jpg
