@@ -396,7 +396,7 @@ class QuizPage1(QMainWindow):
 
 # Quiz Page 2
 class QuizPage2(QMainWindow):
-    def __init__(self, pages, quiz_name):
+    def __init__(self, pages, quiz_name, app):
         super(QuizPage2, self).__init__()
         
         loadUi("sight-earAudioQuiz.ui", self)
@@ -405,8 +405,8 @@ class QuizPage2(QMainWindow):
         self.interruptListening = False
         self.noteSequence = af.scales.get_notes("C")
         self.curNoteIndex = 0
-        self.startStopButton.clicked.connect(lambda: self.play_notes_in_thread())
-        self.answerButton.clicked.connect(lambda: self.listen_in_thread())
+        self.playSound.clicked.connect(lambda: self.play_notes_in_thread())
+        self.listenForSound.clicked.connect(lambda: self.listen_in_thread(app))
 
         self.text = []
         self.imagename = []
@@ -433,7 +433,7 @@ class QuizPage2(QMainWindow):
 
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
-        self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
+        # self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
 
     def play_notes_in_thread(self):
         if self.audioThread == None:   
@@ -441,22 +441,24 @@ class QuizPage2(QMainWindow):
             self.audioThread.start()
         else:
             self.interruptAudio = True
-    def listen_in_thread(self):
+    def listen_in_thread(self, app):
+        self.quizText.setText(f'Listening for audio')
         if self.listeningThread == None:   
-            self.listeningThread = af.threading.Thread(target=self.check_pitch)
+            self.listeningThread = af.threading.Thread(target=self.check_pitch(app))
             self.listeningThread.start()
+            self.listeningThread = None
         else:
             self.interruptListening = True
     
     
-    def check_pitch(self):
-        if(af.match_note(24 + af.notes.note_to_int(self.noteSequence[self.curNoteIndex]), 0.5, self)):
+    def check_pitch(self, app):
+        if(af.match_note(24 + af.notes.note_to_int(self.noteSequence[self.curNoteIndex]), 0.5, self, app)):
             self.curNoteIndex+=1
         self.listeningThread = None
         self.interruptListening = False
         
     
-    def clickAnswerButton(self, pages):
+    # def clickAnswerButton(self, pages):
         # add logic for checking correct answer
         # need to set button as selected when answer is chosen to select it
 
@@ -464,7 +466,7 @@ class QuizPage2(QMainWindow):
             # set styling for correct
         # else
             # set styling for wrong
-        print("pressed")
+        # print("pressed")
 
 
     def clickPreviousButton(self, pages):
@@ -539,9 +541,9 @@ def main():
     earLearnPage = LearnPage2(pages, "Ear Training")
 
     noteQuizPage = QuizPage1(pages, "Note Quiz")
-    sightQuizPage = QuizPage2(pages, "Sight Reading Quiz")
+    sightQuizPage = QuizPage2(pages, "Sight Reading Quiz", app)
     rhythmQuizPage = QuizPage1(pages, "Rhythm Quiz")
-    earQuizPage = QuizPage2(pages, "Ear Training Quiz")
+    earQuizPage = QuizPage2(pages, "Ear Training Quiz", app)
 
     
     pages.addWidget(splashPage) # index 0

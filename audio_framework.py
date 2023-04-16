@@ -32,7 +32,7 @@ def pitch_to_note(pitch):
     octave = pitch_index // 12 - 1
     
     return note + str(octave)
-def match_note(target_note, duration, self):
+def match_note(target_note, duration, self, app):
     c = Note()
     c.from_int(target_note)
 
@@ -52,22 +52,27 @@ def match_note(target_note, duration, self):
         note = pitch_to_note(pitch)
         if pitch > 0:
             if note == c.name + str(c.octave):
-                print(f'Your last note was {note}. Keep going!')
+                self.quizText.setText(f'Your last note was {note}. Keep going!')
+                # print(f'Your last note was {note}. Keep going!')
                 note_held_time += 1024/44100 # increment the note held time by the buffer length
                 if note_held_time >= duration:
-                    print(f'You matched the note!')
+                    self.quizText.setText(f'You matched the note!')
+                    # print(f'You matched the note!')
                     break # exit the loop if the note has been held for more than two seconds
             elif note_held_time > 0:
-                print(f'Your last note was {note}. Try Again')
+                self.quizText.setText(f'Your last note was {note}. Try Again')
+                # print(f'Your last note was {note}. Try Again')
                 note_held_time -= 1024/44100 # decrement the note held time if the note changes
             else:
-                print(f'Your last note was {note}. Try Again')
+                self.quizText.setText(f'Your last note was {note}. Try Again')
+                # print(f'Your last note was {note}. Try Again')
         # print(note, note_held_time)
-        #app.processEvents()
+        app.processEvents()
         endTime = time.time()
         elapsedTime = endTime - startTime
         if elapsedTime > 5:
-            print(f'You didn\'t match the note within 5 seconds. Try Again')
+            self.quizText.setText(f'You didn\'t match the note within 5 seconds. Try Again')
+            # print(f'You didn\'t match the note within 5 seconds. Try Again')
             return False
         
     return True
