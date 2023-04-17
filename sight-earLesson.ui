@@ -382,7 +382,7 @@ font: 36pt &quot;Tw Cen MT&quot;;</string>
          </spacer>
         </item>
         <item row="3" column="3">
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="playAudioButton">
           <property name="text">
            <string>Play Audio</string>
           </property>

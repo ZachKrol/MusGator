@@ -331,9 +331,9 @@ font: 36pt &quot;Tw Cen MT&quot;;</string>
          </spacer>
         </item>
         <item row="4" column="2">
-         <widget class="QPushButton" name="answerButton">
+         <widget class="QPushButton" name="listenForSound">
           <property name="text">
-           <string>Check Answer</string>
+           <string>Try It Yourself</string>
           </property>
          </widget>
         </item>
@@ -352,9 +352,9 @@ p, li { white-space: pre-wrap; }
          </widget>
         </item>
         <item row="4" column="1">
-         <widget class="QPushButton" name="startStopButton">
+         <widget class="QPushButton" name="playSound">
           <property name="text">
-           <string>Start/Stop</string>
+           <string>Play Sound</string>
           </property>
          </widget>
         </item>
