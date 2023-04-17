@@ -341,6 +341,11 @@ class QuizPage1(QMainWindow):
 
         loadUi("note-rythQuiz.ui", self)
 
+        self.defaultStyle = "QPushButton {color: #18A0FB; background-color: rgb(255, 255, 255); border: 1px solid #18A0FB;} QPushButton:hover {color: rgb(255, 255, 255);background-color:  #18A0FB;border: 1px solid #fff;}"
+        self.redStyle = "background-color: red; color: rgb(255, 255, 255);"
+        self.greenStyle = "background-color: green; color: rgb(255, 255, 255);"
+        self.selectedStyle = "background-color: #18A0FB; color: rgb(255, 255, 255); border: 1px solid #18A0FB;"
+
         self.button_group = QButtonGroup()
         self.previouslyCheckedButton = 0;
         self.button_group.setExclusive(True)
@@ -402,18 +407,18 @@ class QuizPage1(QMainWindow):
         # add logic for checking correct answer
         # need to set button as selected when answer is chosen to select it
         if self.button_group.checkedButton().text() == self.correctAnswer[self.index]:
-            self.button_group.checkedButton().setStyleSheet("background-color: green; color: rgb(255, 255, 255);")
+            self.button_group.checkedButton().setStyleSheet(self.greenStyle)
         else:
-            self.button_group.checkedButton().setStyleSheet("background-color: red; color: rgb(255, 255, 255);")
+            self.button_group.checkedButton().setStyleSheet(self.redStyle)
     
 
     def clickAnswerSelection(self):
         if self.previouslyCheckedButton != 0:
-            if self.previouslyCheckedButton.styleSheet() != "background-color: green; color: rgb(255, 255, 255);" and self.previouslyCheckedButton.styleSheet() != "background-color: red; color: rgb(255, 255, 255);":
-                self.previouslyCheckedButton.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+            if self.previouslyCheckedButton.styleSheet() != self.greenStyle and self.previouslyCheckedButton.styleSheet() != self.redStyle:
+                self.previouslyCheckedButton.setStyleSheet(self.defaultStyle)
         
-        if self.button_group.checkedButton().styleSheet() != "background-color: green; color: rgb(255, 255, 255);" and self.button_group.checkedButton().styleSheet() != "background-color: red; color: rgb(255, 255, 255);":
-            self.button_group.checkedButton().setStyleSheet("background-color: #18A0FB; color: rgb(255, 255, 255);")
+        if self.button_group.checkedButton().styleSheet() != self.greenStyle and self.button_group.checkedButton().styleSheet() != self.redStyle:
+            self.button_group.checkedButton().setStyleSheet(self.selectedStyle)
         
         self.previouslyCheckedButton = self.button_group.checkedButton()
 
@@ -432,10 +437,10 @@ class QuizPage1(QMainWindow):
             self.index = self.index - 1
             self.quizText.setText(self.text[self.index])
 
-            self.selection1.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
-            self.selection2.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
-            self.selection3.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
-            self.selection4.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+            self.selection1.setStyleSheet(self.defaultStyle)
+            self.selection2.setStyleSheet(self.defaultStyle)
+            self.selection3.setStyleSheet(self.defaultStyle)
+            self.selection4.setStyleSheet(self.defaultStyle)
 
             self.selection1.setText(self.answerChoices[self.index][0])
             self.selection2.setText(self.answerChoices[self.index][1])
@@ -452,22 +457,6 @@ class QuizPage1(QMainWindow):
             self.nextButton.setText("Next")
             self.index = 0
 
-            self.quizText.setText(self.text[self.index])
-
-            self.selection1.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
-            self.selection2.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
-            self.selection3.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
-            self.selection4.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
-
-            self.selection1.setText(self.answerChoices[self.index][0])
-            self.selection2.setText(self.answerChoices[self.index][1])
-            self.selection3.setText(self.answerChoices[self.index][2])
-            self.selection4.setText(self.answerChoices[self.index][3])
-
-            scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
-            self.quizImage.setScene(scene)
-        
         else:
             if self.index == len(self.text) - 2:
                 self.nextButton.setText("Finish")
@@ -476,21 +465,22 @@ class QuizPage1(QMainWindow):
                 self.previousButton.setText("Previous")
 
             self.index = self.index + 1
-            self.quizText.setText(self.text[self.index])
+        
+        self.quizText.setText(self.text[self.index])
 
-            self.selection1.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
-            self.selection2.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
-            self.selection3.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
-            self.selection4.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+        self.selection1.setStyleSheet(self.defaultStyle)
+        self.selection2.setStyleSheet(self.defaultStyle)
+        self.selection3.setStyleSheet(self.defaultStyle)
+        self.selection4.setStyleSheet(self.defaultStyle)
 
-            self.selection1.setText(self.answerChoices[self.index][0])
-            self.selection2.setText(self.answerChoices[self.index][1])
-            self.selection3.setText(self.answerChoices[self.index][2])
-            self.selection4.setText(self.answerChoices[self.index][3])
+        self.selection1.setText(self.answerChoices[self.index][0])
+        self.selection2.setText(self.answerChoices[self.index][1])
+        self.selection3.setText(self.answerChoices[self.index][2])
+        self.selection4.setText(self.answerChoices[self.index][3])
 
-            scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
-            self.quizImage.setScene(scene)
+        scene = QGraphicsScene()
+        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        self.quizImage.setScene(scene)
 
 
 # Quiz Page 2
