@@ -611,6 +611,143 @@ class QuizPage2(QMainWindow):
         self.audioThread = None
         self.interruptAudio = False
 
+
+# Quiz Page 3
+class QuizPage3(QMainWindow):
+    def __init__(self, pages, quiz_name, app):
+        super(QuizPage3, self).__init__()
+        
+        loadUi("sight-earAudioQuiz.ui", self)
+
+        self.listeningThread = None
+        self.interruptListening = False
+        self.noteSequence = []
+        self.noteDuration = []
+
+        self.playSound.clicked.connect(lambda: self.play_notes_in_thread())
+        self.listenForSound.clicked.connect(lambda: self.listen_in_thread(app))
+
+        self.text = []
+        self.imagename = []
+        self.audioThread = None
+        self.interruptAudio = False
+        self.index = 0
+
+        with open('data.csv') as file:
+            csv_reader = csv.reader(file, delimiter=',')
+
+            for row in csv_reader:
+                    if row[0] == "Quiz":
+                        if row[1] == quiz_name:
+                            self.text.append(row[2])
+                            self.imagename.append(row[4])
+
+                            notes_in_sequence = int(row[5])
+                            temp_notes = []
+                            temp_durations = []
+
+                            for i in range(notes_in_sequence):
+                                temp_notes.append(12 + af.notes.note_to_int(row[6 + i][0]) + (int(row[6 + i][1]) - 3) * 12)
+                                temp_durations.append(float(row[6 + notes_in_sequence + i]))
+                            self.noteSequence.append(temp_notes)
+                            self.noteDuration.append(temp_durations)
+
+        self.previousButton.setText("Back")
+        self.quizTitle.setText(quiz_name)
+        self.quizText.setText(self.text[self.index])
+        
+        scene = QGraphicsScene()
+        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        self.quizImage.setScene(scene)
+
+        self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
+        self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
+        # self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
+
+    def play_notes_in_thread(self):
+        if self.audioThread == None:   
+            self.audioThread = af.threading.Thread(target=self.playNotes)
+            self.audioThread.start()
+        else:
+            self.interruptAudio = True
+    def listen_in_thread(self, app):
+        if self.listeningThread == None:   
+            self.listeningThread = af.threading.Thread(target=self.check_pitch(app))
+            self.listeningThread.start()
+            self.listeningThread = None
+        else:
+            self.interruptListening = True
+    
+    
+    def check_pitch(self, app):
+        af.match_note(24 + af.notes.note_to_int(self.noteSequence[self.index]), 0.5, self, app)
+        self.listeningThread = None
+        self.interruptListening = False
+        
+    
+    # def clickAnswerButton(self, pages):
+        # add logic for checking correct answer
+        # need to set button as selected when answer is chosen to select it
+
+        # if selectedText == answer[index]
+            # set styling for correct
+        # else
+            # set styling for wrong
+        # print("pressed")
+
+
+    def clickPreviousButton(self, pages):
+        self.interruptAudio = True
+        if self.index == 0:
+            pages.setCurrentIndex(1) # Return to home page
+        
+        else:
+            if self.index == 1:
+                self.previousButton.setText("Back")
+            
+            if self.index == len(self.text) - 1:
+                self.nextButton.setText("Next")
+
+            self.index = self.index - 1
+            self.quizText.setText(self.text[self.index])
+
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.quizImage.setScene(scene)
+
+    def clickNextButton(self, pages):
+        self.interruptAudio = True
+        if self.index == len(self.text) - 1:
+            pages.setCurrentIndex(1) # Return to home page
+            self.nextButton.setText("Next")
+            self.index = 0
+
+            self.quizText.setText(self.text[self.index])
+
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.quizImage.setScene(scene)
+        
+        else:
+            if self.index == len(self.text) - 2:
+                self.nextButton.setText("Finish")
+            
+            if self.index == 0:
+                self.previousButton.setText("Previous")
+
+            self.index = self.index + 1
+            self.quizText.setText(self.text[self.index])
+
+            scene = QGraphicsScene()
+            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            self.quizImage.setScene(scene)
+    def playNotes(self):
+        af.play_note_sequence(self.noteSequence[self.index], self.noteDuration[self.index])
+
+        self.audioThread = None
+        self.interruptAudio = False
+
+
 def main():
     app = QApplication(sys.argv)
 
@@ -630,7 +767,7 @@ def main():
     earLearnPage = LearnPage2(pages, "Ear Training")
 
     noteQuizPage = QuizPage1(pages, "Note Quiz")
-    sightQuizPage = QuizPage2(pages, "Sight Reading Quiz", app)
+    sightQuizPage = QuizPage3(pages, "Sight Reading Quiz", app)
     rhythmQuizPage = QuizPage1(pages, "Rhythm Quiz")
     earQuizPage = QuizPage2(pages, "Ear Training Quiz", app)
 
