@@ -342,6 +342,7 @@ class QuizPage1(QMainWindow):
         loadUi("note-rythQuiz.ui", self)
 
         self.button_group = QButtonGroup()
+        self.previouslyCheckedButton = 0;
         self.button_group.setExclusive(True)
 
         self.selection1.setCheckable(True)
@@ -407,7 +408,14 @@ class QuizPage1(QMainWindow):
     
 
     def clickAnswerSelection(self):
-        self.button_group.checkedButton().setStyleSheet("background-color: #18A0FB; color: rgb(255, 255, 255);")
+        if self.previouslyCheckedButton != 0:
+            if self.previouslyCheckedButton.styleSheet() != "background-color: green; color: rgb(255, 255, 255);" and self.previouslyCheckedButton.styleSheet() != "background-color: red; color: rgb(255, 255, 255);":
+                self.previouslyCheckedButton.setStyleSheet("color: #18A0FB; background-color: rgb(255, 255, 255);")
+        
+        if self.button_group.checkedButton().styleSheet() != "background-color: green; color: rgb(255, 255, 255);" and self.button_group.checkedButton().styleSheet() != "background-color: red; color: rgb(255, 255, 255);":
+            self.button_group.checkedButton().setStyleSheet("background-color: #18A0FB; color: rgb(255, 255, 255);")
+        
+        self.previouslyCheckedButton = self.button_group.checkedButton()
 
 
     def clickPreviousButton(self, pages):
