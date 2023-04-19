@@ -112,8 +112,12 @@ class LearnPage1(QMainWindow):
         scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
         self.lessonImage.setScene(scene)
 
+        self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
+
+    def clickedHomeButton(self, pages):
+        pages.setCurrentIndex(1) # Return to home page
 
     def clickPreviousButton(self, pages):
         if self.index == 0:
@@ -190,9 +194,13 @@ class LearnPage2(QMainWindow):
         scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
         self.lessonImage.setScene(scene)
 
+        self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
         self.playAudioButton.clicked.connect(lambda: self.clickPlayAudioButton())
+
+    def clickedHomeButton(self, pages):
+        pages.setCurrentIndex(1) # Return to home page
 
     def clickPreviousButton(self, pages):
         if self.index == 0:
@@ -282,9 +290,13 @@ class LearnPage3(QMainWindow):
         scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
         self.lessonImage.setScene(scene)
 
+        self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
         self.playAudioButton.clicked.connect(lambda: self.clickPlayAudioButton())
+
+    def clickedHomeButton(self, pages):
+        pages.setCurrentIndex(1) # Return to home page
 
     def clickPreviousButton(self, pages):
         if self.index == 0:
@@ -341,13 +353,13 @@ class QuizPage1(QMainWindow):
 
         loadUi("note-rythQuiz.ui", self)
 
-        self.defaultStyle = "QPushButton {color: #18A0FB; background-color: rgb(255, 255, 255); border: 1px solid #18A0FB;} QPushButton:hover {color: rgb(255, 255, 255);background-color:  #18A0FB;border: 1px solid #fff;}"
-        self.redStyle = "background-color: red; color: rgb(255, 255, 255);"
-        self.greenStyle = "background-color: green; color: rgb(255, 255, 255);"
-        self.selectedStyle = "background-color: #18A0FB; color: rgb(255, 255, 255); border: 1px solid #18A0FB;"
+        self.defaultStyle = "QPushButton {color: #18A0FB; background-color: rgb(255, 255, 255); border: 1px solid #18A0FB; margin-top: 20px;} QPushButton:hover {color: rgb(255, 255, 255);background-color:  #18A0FB;border: 1px solid #fff;}"
+        self.redStyle = "background-color: red; color: rgb(255, 255, 255); margin-top: 20px;"
+        self.greenStyle = "background-color: green; color: rgb(255, 255, 255); margin-top: 20px;"
+        self.selectedStyle = "background-color: #18A0FB; color: rgb(255, 255, 255); border: 1px solid #18A0FB; margin-top: 20px;"
 
         self.button_group = QButtonGroup()
-        self.previouslyCheckedButton = 0;
+        self.previouslyCheckedButton = 0
         self.button_group.setExclusive(True)
 
         self.selection1.setCheckable(True)
@@ -398,9 +410,13 @@ class QuizPage1(QMainWindow):
         scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
         self.quizImage.setScene(scene)
 
+        self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
         self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
+
+    def clickedHomeButton(self, pages):
+        pages.setCurrentIndex(1) # Return to home page
 
 
     def clickAnswerButton(self, pages):
@@ -410,7 +426,6 @@ class QuizPage1(QMainWindow):
             self.button_group.checkedButton().setStyleSheet(self.greenStyle)
         else:
             self.button_group.checkedButton().setStyleSheet(self.redStyle)
-    
 
     def clickAnswerSelection(self):
         if self.previouslyCheckedButton != 0:
@@ -519,6 +534,7 @@ class QuizPage2(QMainWindow):
         scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
         self.quizImage.setScene(scene)
 
+        self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
         # self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
@@ -543,7 +559,9 @@ class QuizPage2(QMainWindow):
         self.listeningThread = None
         self.interruptListening = False
         
-    
+    def clickedHomeButton(self, pages):
+        pages.setCurrentIndex(1) # Return to home page
+
     # def clickAnswerButton(self, pages):
         # add logic for checking correct answer
         # need to set button as selected when answer is chosen to select it
@@ -660,6 +678,7 @@ class QuizPage3(QMainWindow):
         scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
         self.quizImage.setScene(scene)
 
+        self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
         # self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
@@ -684,7 +703,9 @@ class QuizPage3(QMainWindow):
         self.listeningThread = None
         self.interruptListening = False
         
-    
+    def clickedHomeButton(self, pages):
+        pages.setCurrentIndex(1) # Return to home page
+
     # def clickAnswerButton(self, pages):
         # add logic for checking correct answer
         # need to set button as selected when answer is chosen to select it

@@ -167,10 +167,45 @@ padding-left:4px;</string>
        <number>20</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="topLayout" stretch="0,0,0">
+       <layout class="QHBoxLayout" name="topLayout" stretch="0,0,1,1,1,0">
         <property name="bottomMargin">
          <number>0</number>
         </property>
+        <item>
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>60</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="homeButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+background-color: rgb(255, 255, 255);
+border: 1px solid #18A0FB;
+border-radius: 10%;
+color:#18A0FB;
+padding: 9px;
+font-size: 18px;
+}
+QPushButton:hover {
+color: rgb(255, 255, 255);
+background-color:  #18A0FB;
+border: 1px solid #fff;
+}</string>
+          </property>
+          <property name="text">
+           <string>Home</string>
+          </property>
+         </widget>
+        </item>
         <item>
          <spacer name="horizontalSpacer_3">
           <property name="orientation">
@@ -239,6 +274,19 @@ font: 36pt &quot;Tw Cen MT&quot;;</string>
           </property>
          </spacer>
         </item>
+        <item>
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>132</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
        </layout>
       </item>
       <item>
@@ -291,18 +339,20 @@ font: 36pt &quot;Tw Cen MT&quot;;</string>
           </property>
          </widget>
         </item>
-        <item row="3" column="3">
-         <widget class="QPushButton" name="nextButton">
-          <property name="styleSheet">
-           <string notr="true">margin-top: 20px;</string>
-          </property>
-          <property name="text">
-           <string>Next</string>
-          </property>
-         </widget>
-        </item>
         <item row="2" column="3">
          <widget class="QTextBrowser" name="lessonText">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>256</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Tw Cen MT</family>
@@ -326,18 +376,20 @@ p, li { white-space: pre-wrap; }
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
-         <widget class="QPushButton" name="previousButton">
-          <property name="styleSheet">
-           <string notr="true">margin-top: 20px;</string>
-          </property>
-          <property name="text">
-           <string>Previous</string>
-          </property>
-         </widget>
-        </item>
         <item row="2" column="1">
          <widget class="QGraphicsView" name="lessonImage">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>256</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="styleSheet">
            <string notr="true">border: none;</string>
           </property>
@@ -416,6 +468,46 @@ p, li { white-space: pre-wrap; }
            </size>
           </property>
          </spacer>
+        </item>
+        <item row="3" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QPushButton" name="previousButton">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">margin-top: 20px;</string>
+            </property>
+            <property name="text">
+             <string>Previous</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="3" column="3">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QPushButton" name="nextButton">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">margin-top: 20px;</string>
+            </property>
+            <property name="text">
+             <string>Next</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
