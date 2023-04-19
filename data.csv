@@ -21,43 +21,43 @@ Lesson,Rhythm,Single Sixteenth Note,1/4 beat of sound,pic19.jpg
 Lesson,Rhythm,Sixteenth Rest,1/4 beat of silence,pic20.jpg
 Lesson,Rhythm,3/4 Time Signature,3 beats per measure,pic21.jpg
 Lesson,Rhythm,Tie,A curved line that connects the heads of two notes together to create a longer sound (equal to both added together),pic22.jpg
-Lesson,Note Learning,,D ,sight1.jpg
-Lesson,Note Learning,,F ,sight2.jpg
-Lesson,Note Learning,,Middle C ,sight3.jpg
-Lesson,Note Learning,,E ,sight4.jpg
-Lesson,Note Learning,,B ,sight5.jpg
-Lesson,Note Learning,,G ,sight6.jpg
-Lesson,Note Learning,,D ,sight7.jpg 
-Lesson,Note Learning,,A ,sight8.jpg
-Lesson,Note Learning,,C ,sight9.jpg
-Lesson,Note Learning,,G ,sight10.jpg
-Lesson,Note Learning,,E ,sight11.jpg
-Lesson,Note Learning,,F ,sight12.jpg
-Lesson,Note Learning,,A ,sight13.jpg
-Lesson,Note Learning,,E ,sight14.jpg
-Lesson,Note Learning,,B ,sight15.jpg
-Lesson,Note Learning,,F ,sight16.jpg
-Lesson,Note Learning,,B ,sight17.jpg
-Lesson,Note Learning,,G ,sight18.jpg
-Lesson,Note Learning,,A ,sight19.jpg
-Lesson,Note Learning,,D ,sight20.jpg
-Lesson,Note Learning,,G ,sight21.jpg
-Lesson,Note Learning,,C ,sight22.jpg
-Lesson,Note Learning,,F ,sight23.jpg
-Lesson,Note Learning,,C ,sight24.jpg
-Lesson,Sight Reading,Title 1,Text 1,staff1.jpg
-Lesson,Sight Reading,Title 2,Text 2,staff2.jpg
-Lesson,Sight Reading,Title 3,Text 3,staff3.jpg
-Lesson,Sight Reading,Title 4,Text 4,staff4.jpg
-Lesson,Sight Reading,Title 5,Text 5,staff5.jpg
-Lesson,Sight Reading,Title 6,Text 6,staff6.jpg
-Lesson,Ear Training,Title 1,Practice by listening to each note,C.jpg
-Lesson,Ear Training,Title 2,Practice by listening to each note,D.jpg
-Lesson,Ear Training,Title 3,Practice by listening to each note,E.jpg
-Lesson,Ear Training,Title 4,Practice by listening to each note,F.jpg
-Lesson,Ear Training,Title 5,Practice by listening to each note,G.jpg
-Lesson,Ear Training,Title 6,Practice by listening to each note,A.jpg
-Lesson,Ear Training,Title 7,Practice by listening to each note,B.jpg
+Lesson,Note Learning,Middle C (C4),The first note on the treble clef staff; a common starting note for many melodies and often used to create tension.,sight3.jpg
+Lesson,Note Learning,D4,This note is often used to add energy to music.,sight1.jpg
+Lesson,Note Learning,E4,This note is often used to create a sense of resolution. This can be heard in the song Fur Elise" by Beethoven.,sight4.jpg
+Lesson,Note Learning,F4,This note is often used to create tension such as in "I Will Always Love You" by Whitney Houston. In this the melody rises to an F4 note on the word "love" in the phrase "and I will always love you.",sight2.jpg
+Lesson,Note Learning,G4,This note is often used to add movement to music.,sight6.jpg
+Lesson,Note Learning,A4,This note is a common starting note for many melodies and often used to create a sense of resolution.,sight8.jpg
+Lesson,Note Learning,B4,This note is often used to add energy to music. This can be heard in "Don't Stop Believin'" by Journey where the melody rises to a B4 note on the word "believin'" in the phrase "don't stop believin'.".,sight5.jpg
+Lesson,Note Learning,C5,This note is one octave higher than middle C and is often used to create tension. This can be heard in the song "Creep" by Radiohead. In the chorus of the song the melody rises to a C5 note on the word "creep" in the phrase "I'm a creep." This note is higher than any note in the preceding melody and creates a sense of tension and unease.,sight9.jpg
+Lesson,Note Learning,D5,This note is often used to add movement to music. This can be heard in the song "Hallelujah" by Leonard Cohen where the melody rises to a D5 note on the word "Hallelujah.",sight7.jpg
+Lesson,Note Learning,E5,This note is often used to create a sense of resolution.,sight11.jpg
+Lesson,Note Learning,F5,This note is on the second ledger line above the treble clef staff and is often used to create tension.,sight12.jpg
+Lesson,Note Learning,G5,This note is often used to add movement to music. This can be heard in "Let it Be" by The Beatles where the melody rises to a G5 note on the word "be" in the phrase "let it be.",sight10.jpg
+Lesson,Note Learning,F2,This is the lowest F on the bass clef and is often used to create a deep and rich bass sound.,sight23.jpg
+Lesson,Note Learning,G2,The next note up from F2. G2 is often used to add movement and energy to bass lines.,sight21.jpg
+Lesson,Note Learning,A2,This note is a whole step above G2 and is a common starting note for many bass lines and melodies.,sight19.jpg
+Lesson,Note Learning,B2,This note is a common starting note for many bass lines and is often used to add depth and complexity to music.,sight17.jpg
+Lesson,Note Learning,C3,The first note on the bass clef staff; C3 is often used to create tension.,sight22.jpg
+Lesson,Note Learning,D3,This note is a whole step above C3 and is often used to add movement and energy to bass lines.,sight20.jpg
+Lesson,Note Learning,E3,This note is often used to create a sense of resolution or finality.,sight14.jpg
+Lesson,Note Learning,F3,The first note on the bass clef ledger line above the staff; F3 is often used to create tension.,sight16.jpg
+Lesson,Note Learning,G3,This note is a whole step above F3 and is often used to add movement and energy to bass lines.,sight18.jpg
+Lesson,Note Learning,A3,This note is often used to create a sense of resolution or finality.,sight13.jpg
+Lesson,Note Learning,B3,This note is often used to add depth and complexity to music.,sight15.jpg
+Lesson,Note Learning,C4,The first ledger line above the bass clef staff; also known as middle C.,sight24.jpg
+Lesson,Sight Reading,Sequence 1,Text 1,staff1.jpg,4,C4,D4,E4,C4,.5,.5,.5,.5
+Lesson,Sight Reading,Sequence 2,Text 2,staff2.jpg,3,C4,B3,C4,.5,.5,1
+Lesson,Sight Reading,Sequence 3,Text 3,staff3.jpg,4,C4,D4,E4,F4,.5,.5,.5,.5
+Lesson,Sight Reading,Sequence 4,Text 4,staff4.jpg,3,E4,D4,C4,.5,.5,1
+Lesson,Sight Reading,Sequence 5,Text 5,staff5.jpg,3,C5,B4,A4,1,.5,.5
+Lesson,Sight Reading,Sequence 6,Text 6,staff6.jpg,3,G4,A4,B4,1,.5,.5
+Lesson,Ear Training,C,Practice by listening to each note,C.jpg
+Lesson,Ear Training,D,Practice by listening to each note,D.jpg
+Lesson,Ear Training,E,Practice by listening to each note,E.jpg
+Lesson,Ear Training,F,Practice by listening to each note,F.jpg
+Lesson,Ear Training,G,Practice by listening to each note,G.jpg
+Lesson,Ear Training,A,Practice by listening to each note,A.jpg
+Lesson,Ear Training,B,Practice by listening to each note,B.jpg
 Quiz,Rhythm Quiz,The space between two Bar lines where music is written. How many beats is determined by the Time Signature.,,pic2.jpg,Dotted Half Note,Quarter Note,Measure,Repeat Sign,Measure
 Quiz,Rhythm Quiz,4 beats of sound,,pic3.jpg,Half Note,Whole Note,Eighth Rest,Double Bar Line,Whole Note
 Quiz,Rhythm Quiz,4 beats of silence,,pic4.jpg,Half Rest,Whole Note,Whole Rest,Tie,Whole Rest
@@ -66,15 +66,19 @@ Quiz,Rhythm Quiz,2 beats of sound,,pic6.jpg,Pair of Eighth Notes,Double Bar Line
 Quiz,Rhythm Quiz,2 beats of silence,,pic7.jpg,Single Eighth Note,Half Rest,Half Note,Quarter Rest,Half Rest
 Quiz,Rhythm Quiz,1 beat of sound,,pic8.jpg,Quarter Note,Dotted Half Note,Group of 4 Sixteenth Notes,Single Eighth Note,Quarter Note
 Quiz,Rhythm Quiz,1 beat of silence,,pic9.jpg,Single Eighth Note,Quarter Rest,Dotted Quarter Note,Bar Line,Quarter Rest
-Quiz,Note Quiz,,What note is this?,sight1.jpg,A,C,E,D,D 
-Quiz,Note Quiz,,What note is this?,sight2.jpg,D,A,C,F,F 
-Quiz,Note Quiz,,What note is this?,sight3.jpg,B,G,C,B,C 
-Quiz,Note Quiz,,What note is this?,sight4.jpg,C,B,E,C,E 
-Quiz,Note Quiz,,What note is this?,sight5.jpg,B,A,G,E,B 
-Quiz,Note Quiz,,What note is this?,sight6.jpg,A,C,D,G,G 
-Quiz,Note Quiz,,What note is this?,sight7.jpg,G,F,D,E,D 
-Quiz,Sight Reading Quiz,Play this measure of music. Press the start/stop button before and after you play. ,,staff1.jpg
-Quiz,Sight Reading Quiz,Play this measure of music. Press the start/stop button before and after you play. ,,staff3.jpg
-Quiz,Ear Training Quiz,Play this note. Press the start/stop button before and after you play. ,,C.jpg
-Quiz,Ear Training Quiz,Play this note. Press the start/stop button before and after you play. ,,D.jpg
-Quiz,Ear Training Quiz,Play this note. Press the start/stop button before and after you play. ,,E.jpg
+Quiz,Note Quiz,What note is this?,What note is this?,sight1.jpg,A,C,E,D,D
+Quiz,Note Quiz,What note is this?,What note is this?,sight2.jpg,D,A,C,F,F
+Quiz,Note Quiz,What note is this?,What note is this?,sight3.jpg,B,G,C,E,C
+Quiz,Note Quiz,What note is this?,What note is this?,sight4.jpg,C,B,E,G,E
+Quiz,Note Quiz,What note is this?,What note is this?,sight5.jpg,B,A,G,E,B
+Quiz,Note Quiz,What note is this?,What note is this?,sight6.jpg,A,C,D,G,G
+Quiz,Note Quiz,What note is this?,What note is this?,sight7.jpg,G,F,D,E,D
+Quiz,Sight Reading Quiz,Listen to the sound and then try to replicate it within 5 seconds. ,,staff1.jpg,4,C4,D4,E4,C4,.5,.5,.5,.5
+Quiz,Sight Reading Quiz,Listen to the sound and then try to replicate it within 5 seconds. ,,staff3.jpg,4,C4,D4,E4,F4,.5,.5,.5,.5
+Quiz,Ear Training Quiz,Listen to the sound and try to replicate it within 5 seconds. ,C,C.jpg
+Quiz,Ear Training Quiz,Listen to the sound and try to replicate it within 5 seconds. ,D,D.jpg
+Quiz,Ear Training Quiz,Listen to the sound and try to replicate it within 5 seconds. ,E,E.jpg
+Quiz,Ear Training Quiz,Listen to the sound and try to replicate it within 5 seconds. ,F,F.jpg
+Quiz,Ear Training Quiz,Listen to the sound and try to replicate it within 5 seconds. ,G,G.jpg
+Quiz,Ear Training Quiz,Listen to the sound and try to replicate it within 5 seconds. ,A,A.jpg
+Quiz,Ear Training Quiz,Listen to the sound and try to replicate it within 5 seconds. ,B,B.jpg
