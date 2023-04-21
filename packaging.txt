@@ -1,0 +1,15 @@
+Steps to package project into .exe:
+
+1. install PyInstaller
+    >pip install PyInstaller
+
+2. change all relative paths in main.py to your machine's absolute path
+    -includes .ui files, data.csv, and image files
+    -example: scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
+    -Note: pyinstaller doesn't read files from relative paths on your machine
+
+3. run build command 
+    >python -m PyInstaller --onefile -w main.py
+    -this will make main.exe in ../MusGator/dist/main.exe
+
+Woohoo!

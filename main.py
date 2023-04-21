@@ -17,7 +17,8 @@ from PyQt5.QtCore import QThreadPool, QRunnable
 class SplashPage(QMainWindow):
     def __init__(self, pages):
         super(SplashPage, self).__init__()
-        loadUi("SplashPage.ui", self)
+        loadUi(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\SplashPage.ui', self)
+
         self.homeIndex = 1
 
         self.startButton.clicked.connect(lambda: self.toHome(pages))
@@ -30,7 +31,7 @@ class SplashPage(QMainWindow):
 class HomePage(QMainWindow):
     def __init__(self, pages):
         super(HomePage, self).__init__()
-        loadUi("HomePage.ui", self)
+        loadUi(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\HomePage.ui', self)
 
         self.noteLearnIndex = 2
         self.sightLearnIndex = 3
@@ -85,7 +86,7 @@ class LearnPage1(QMainWindow):
     def __init__(self, pages, lesson_name):
         super(LearnPage1, self).__init__()
         
-        loadUi("note-rythLesson.ui", self)
+        loadUi(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\note-rythLesson.ui', self)
 
         self.text = []
         self.title = []
@@ -93,7 +94,7 @@ class LearnPage1(QMainWindow):
 
         self.index = 0
 
-        with open('data.csv') as file:
+        with open(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\data.csv') as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -109,7 +110,7 @@ class LearnPage1(QMainWindow):
         self.lessonText.setText(self.text[self.index])
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
         self.lessonImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
@@ -135,7 +136,7 @@ class LearnPage1(QMainWindow):
             self.lessonText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.lessonImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -148,7 +149,7 @@ class LearnPage1(QMainWindow):
             self.lessonText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.lessonImage.setScene(scene)
         
         else:
@@ -163,7 +164,7 @@ class LearnPage1(QMainWindow):
             self.lessonText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.lessonImage.setScene(scene)
 
 
@@ -172,12 +173,12 @@ class LearnPage2(QMainWindow):
     def __init__(self, pages, lesson_name):
         super(LearnPage2, self).__init__()
 
-        loadUi("sight-earLesson.ui", self)
+        loadUi(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\sight-earLesson.ui', self)
 
         self.title = []
         self.imagename = []
         self.index = 0
-        with open('data.csv') as file:
+        with open(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\data.csv') as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -191,7 +192,7 @@ class LearnPage2(QMainWindow):
         self.lessonTextLabel.setText(self.title[self.index])
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
         self.lessonImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
@@ -217,7 +218,7 @@ class LearnPage2(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.lessonImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -229,7 +230,7 @@ class LearnPage2(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.lessonImage.setScene(scene)
         
         else:
@@ -243,7 +244,7 @@ class LearnPage2(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.lessonImage.setScene(scene)
     def clickPlayAudioButton(self):
         af.play_note(24 + af.notes.note_to_int(af.scales.get_notes("C")[self.index]))
@@ -254,7 +255,7 @@ class LearnPage3(QMainWindow):
     def __init__(self, pages, lesson_name):
         super(LearnPage3, self).__init__()
 
-        loadUi("sight-earLesson.ui", self)
+        loadUi(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\sight-earLesson.ui', self)
 
         self.title = []
         self.imagename = []
@@ -263,7 +264,7 @@ class LearnPage3(QMainWindow):
         self.noteSequence = []
         self.noteDuration = []
 
-        with open('data.csv') as file:
+        with open(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\data.csv') as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -287,7 +288,7 @@ class LearnPage3(QMainWindow):
         self.lessonTextLabel.setText(self.title[self.index])
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
         self.lessonImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
@@ -313,7 +314,7 @@ class LearnPage3(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.lessonImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -325,7 +326,7 @@ class LearnPage3(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.lessonImage.setScene(scene)
         
         else:
@@ -339,7 +340,7 @@ class LearnPage3(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.lessonImage.setScene(scene)
     def clickPlayAudioButton(self):
         af.play_note_sequence(self.noteSequence[self.index], self.noteDuration[self.index])
@@ -351,7 +352,7 @@ class QuizPage1(QMainWindow):
     def __init__(self, pages, quiz_name):
         super(QuizPage1, self).__init__()
 
-        loadUi("note-rythQuiz.ui", self)
+        loadUi(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\note-rythQuiz.ui', self)
 
         self.defaultStyle = "QPushButton {color: #18A0FB; background-color: rgb(255, 255, 255); border: 1px solid #18A0FB; margin-top: 20px;} QPushButton:hover {color: rgb(255, 255, 255);background-color:  #18A0FB;border: 1px solid #fff;}"
         self.redStyle = "background-color: red; color: rgb(255, 255, 255); margin-top: 20px;"
@@ -381,7 +382,7 @@ class QuizPage1(QMainWindow):
 
         self.index = 0
 
-        with open('data.csv') as file:
+        with open(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\data.csv') as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -407,7 +408,7 @@ class QuizPage1(QMainWindow):
 
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
         self.quizImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
@@ -420,8 +421,6 @@ class QuizPage1(QMainWindow):
 
 
     def clickAnswerButton(self, pages):
-        # add logic for checking correct answer
-        # need to set button as selected when answer is chosen to select it
         if self.button_group.checkedButton().text() == self.correctAnswer[self.index]:
             self.button_group.checkedButton().setStyleSheet(self.greenStyle)
         else:
@@ -463,7 +462,7 @@ class QuizPage1(QMainWindow):
             self.selection4.setText(self.answerChoices[self.index][3])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.quizImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -494,7 +493,7 @@ class QuizPage1(QMainWindow):
         self.selection4.setText(self.answerChoices[self.index][3])
 
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
         self.quizImage.setScene(scene)
 
 
@@ -503,7 +502,7 @@ class QuizPage2(QMainWindow):
     def __init__(self, pages, quiz_name, app):
         super(QuizPage2, self).__init__()
         
-        loadUi("sight-earAudioQuiz.ui", self)
+        loadUi(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\sight-earAudioQuiz.ui', self)
 
         self.listeningThread = None
         self.interruptListening = False
@@ -517,7 +516,7 @@ class QuizPage2(QMainWindow):
         self.interruptAudio = False
         self.index = 0
 
-        with open('data.csv') as file:
+        with open(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\data.csv') as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -531,13 +530,12 @@ class QuizPage2(QMainWindow):
         self.quizText.setText(self.text[self.index])
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
         self.quizImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
-        # self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
 
     def play_notes_in_thread(self):
         if self.audioThread == None:   
@@ -562,17 +560,6 @@ class QuizPage2(QMainWindow):
     def clickedHomeButton(self, pages):
         pages.setCurrentIndex(1) # Return to home page
 
-    # def clickAnswerButton(self, pages):
-        # add logic for checking correct answer
-        # need to set button as selected when answer is chosen to select it
-
-        # if selectedText == answer[index]
-            # set styling for correct
-        # else
-            # set styling for wrong
-        # print("pressed")
-
-
     def clickPreviousButton(self, pages):
         self.interruptAudio = True
         if self.index == 0:
@@ -589,7 +576,7 @@ class QuizPage2(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.quizImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -602,7 +589,7 @@ class QuizPage2(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.quizImage.setScene(scene)
         
         else:
@@ -616,16 +603,12 @@ class QuizPage2(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.quizImage.setScene(scene)
     def playNotes(self):
         af.play_note(24 + af.notes.note_to_int(self.noteSequence[self.index]))
         af.time.sleep(1)
 
-        # for i in range(self.curNoteIndex, len(self.noteSequence)):
-        #     if not self.interruptAudio:
-        #         af.play_note(24 + af.notes.note_to_int(self.noteSequence[i]))
-        #         af.time.sleep(1)
         self.audioThread = None
         self.interruptAudio = False
 
@@ -635,7 +618,7 @@ class QuizPage3(QMainWindow):
     def __init__(self, pages, quiz_name, app):
         super(QuizPage3, self).__init__()
         
-        loadUi("sight-earAudioQuiz.ui", self)
+        loadUi(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\sight-earAudioQuiz.ui', self)
 
         self.listeningThread = None
         self.interruptListening = False
@@ -651,7 +634,7 @@ class QuizPage3(QMainWindow):
         self.interruptAudio = False
         self.index = 0
 
-        with open('data.csv') as file:
+        with open(r'C:\Users\Zach\Documents\Spring 2023\CIS4914\MusGator\data.csv') as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -675,13 +658,12 @@ class QuizPage3(QMainWindow):
         self.quizText.setText(self.text[self.index])
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
         self.quizImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
         self.previousButton.clicked.connect(lambda: self.clickPreviousButton(pages))
         self.nextButton.clicked.connect(lambda: self.clickNextButton(pages))
-        # self.answerButton.clicked.connect(lambda: self.clickAnswerButton(pages))
 
     def play_notes_in_thread(self):
         if self.audioThread == None:   
@@ -706,17 +688,6 @@ class QuizPage3(QMainWindow):
     def clickedHomeButton(self, pages):
         pages.setCurrentIndex(1) # Return to home page
 
-    # def clickAnswerButton(self, pages):
-        # add logic for checking correct answer
-        # need to set button as selected when answer is chosen to select it
-
-        # if selectedText == answer[index]
-            # set styling for correct
-        # else
-            # set styling for wrong
-        # print("pressed")
-
-
     def clickPreviousButton(self, pages):
         self.interruptAudio = True
         if self.index == 0:
@@ -733,7 +704,7 @@ class QuizPage3(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.quizImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -746,7 +717,7 @@ class QuizPage3(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.quizImage.setScene(scene)
         
         else:
@@ -760,7 +731,7 @@ class QuizPage3(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(r'C:/Users/Zach/Documents/Spring 2023/CIS4914/MusGator/images/' + self.imagename[self.index]))
             self.quizImage.setScene(scene)
     def playNotes(self):
         af.play_note_sequence(self.noteSequence[self.index], self.noteDuration[self.index])
