@@ -104,8 +104,12 @@ def match_note_in_sequence(target_notes, duration, self, app):
                 note_held_time += 1024/44100 # increment the note held time by the buffer length
                 if note_held_time >= duration[index]:
                     index += 1
-                    if index > length:
+                    note_held_time = 0.0
+                    if index >= length:
                         break
+                    else:
+                        c.from_int(target_notes[index])
+                        self.quizText.setText(f'Listening for note: {c.name}')
             elif note_held_time > 0:
                 note_held_time -= 1024/44100
         app.processEvents()
@@ -113,7 +117,7 @@ def match_note_in_sequence(target_notes, duration, self, app):
         elapsedTime = endTime - startTime
         if elapsedTime > 5:
             return False
-        
+    self.quizText.setText(f'Note sequence matched!')        
     return True
 
 def midi_quit():
