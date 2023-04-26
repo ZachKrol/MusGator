@@ -78,6 +78,48 @@ def match_note(target_note, duration, self, app):
         
     return True
 
+def match_note_in_sequence(target_notes, duration, self, app):
+    c = Note()
+    index = 0
+    length = len(target_notes)
+    c.from_int(target_notes[index])
+    self.quizText.setText(f'Listening for note: {c.name}')
+
+    p = pyaudio.PyAudio()
+    stream = p.open(format=pyaudio.paFloat32, channels=1, rate=44100, input=True, frames_per_buffer=2048)
+    note_held_time = 0.0
+
+    startTime = time.time()
+    endTime = time.time()
+
+    while True:
+        if self.interruptListening:
+            return False
+        data = stream.read(1024, exception_on_overflow=False)
+        signal = np.frombuffer(data, dtype=np.float32)
+        pitch = get_pitch(signal)
+        note = pitch_to_note(pitch)
+        if pitch > 0:
+            if note == c.name + str(c.octave):
+                note_held_time += 1024/44100 # increment the note held time by the buffer length
+                if note_held_time >= duration[index]:
+                    index += 1
+                    note_held_time = 0.0
+                    if index >= length:
+                        break
+                    else:
+                        c.from_int(target_notes[index])
+                        self.quizText.setText(f'Listening for note: {c.name}')
+            elif note_held_time > 0:
+                note_held_time -= 1024/44100
+        app.processEvents()
+        endTime = time.time()
+        elapsedTime = endTime - startTime
+        if elapsedTime > 5:
+            return False
+    self.quizText.setText(f'Note sequence matched!')        
+    return True
+
 def midi_quit():
     del player
     midi.quit()

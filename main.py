@@ -422,10 +422,11 @@ class QuizPage1(QMainWindow):
     def clickAnswerButton(self, pages):
         # add logic for checking correct answer
         # need to set button as selected when answer is chosen to select it
-        if self.button_group.checkedButton().text() == self.correctAnswer[self.index]:
-            self.button_group.checkedButton().setStyleSheet(self.greenStyle)
-        else:
-            self.button_group.checkedButton().setStyleSheet(self.redStyle)
+        if self.button_group.checkedButton():
+            if self.button_group.checkedButton().text() == self.correctAnswer[self.index]:
+                self.button_group.checkedButton().setStyleSheet(self.greenStyle)
+            else:
+                self.button_group.checkedButton().setStyleSheet(self.redStyle)
 
     def clickAnswerSelection(self):
         if self.previouslyCheckedButton != 0:
@@ -699,7 +700,7 @@ class QuizPage3(QMainWindow):
     
     
     def check_pitch(self, app):
-        af.match_note(24 + af.notes.note_to_int(self.noteSequence[self.index]), 0.5, self, app)
+        af.match_note_in_sequence(self.noteSequence[self.index], self.noteDuration[self.index], self, app)
         self.listeningThread = None
         self.interruptListening = False
         
