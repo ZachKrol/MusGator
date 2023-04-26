@@ -1,4 +1,5 @@
 import sys
+import os
 import csv
 import logo.rc_logo as rc_logo
 import banner.rc_banner as rc_banner
@@ -9,6 +10,14 @@ import random
 import audio_framework as af
 from PyQt5.QtCore import QThreadPool, QRunnable
 
+def getPackagedPath(path):
+    if hasattr(sys, '_MEIPASS'):
+    # PyInstaller >= 3.3
+        return os.path.join(sys._MEIPASS,path)
+    else:
+    # PyInstaller < 3.3
+        return path
+
 # 0 - Splash page
 # 1 - Home page
 # 2 - Note Learning page
@@ -17,7 +26,7 @@ from PyQt5.QtCore import QThreadPool, QRunnable
 class SplashPage(QMainWindow):
     def __init__(self, pages):
         super(SplashPage, self).__init__()
-        loadUi("SplashPage.ui", self)
+        loadUi(getPackagedPath("SplashPage.ui"), self)
         self.homeIndex = 1
 
         self.startButton.clicked.connect(lambda: self.toHome(pages))
@@ -30,7 +39,7 @@ class SplashPage(QMainWindow):
 class HomePage(QMainWindow):
     def __init__(self, pages):
         super(HomePage, self).__init__()
-        loadUi("HomePage.ui", self)
+        loadUi(getPackagedPath("HomePage.ui"), self)
 
         self.noteLearnIndex = 2
         self.sightLearnIndex = 3
@@ -85,7 +94,7 @@ class LearnPage1(QMainWindow):
     def __init__(self, pages, lesson_name):
         super(LearnPage1, self).__init__()
         
-        loadUi("note-rythLesson.ui", self)
+        loadUi(getPackagedPath("note-rythLesson.ui"), self)
 
         self.text = []
         self.title = []
@@ -93,7 +102,7 @@ class LearnPage1(QMainWindow):
 
         self.index = 0
 
-        with open('data.csv') as file:
+        with open(getPackagedPath('data.csv')) as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -109,7 +118,7 @@ class LearnPage1(QMainWindow):
         self.lessonText.setText(self.text[self.index])
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
         self.lessonImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
@@ -135,7 +144,7 @@ class LearnPage1(QMainWindow):
             self.lessonText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.lessonImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -148,7 +157,7 @@ class LearnPage1(QMainWindow):
             self.lessonText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.lessonImage.setScene(scene)
         
         else:
@@ -163,7 +172,7 @@ class LearnPage1(QMainWindow):
             self.lessonText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.lessonImage.setScene(scene)
 
 
@@ -172,12 +181,12 @@ class LearnPage2(QMainWindow):
     def __init__(self, pages, lesson_name):
         super(LearnPage2, self).__init__()
 
-        loadUi("sight-earLesson.ui", self)
+        loadUi(getPackagedPath("sight-earLesson.ui"), self)
 
         self.title = []
         self.imagename = []
         self.index = 0
-        with open('data.csv') as file:
+        with open(getPackagedPath('data.csv')) as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -191,7 +200,7 @@ class LearnPage2(QMainWindow):
         self.lessonTextLabel.setText(self.title[self.index])
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
         self.lessonImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
@@ -217,7 +226,7 @@ class LearnPage2(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.lessonImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -229,7 +238,7 @@ class LearnPage2(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.lessonImage.setScene(scene)
         
         else:
@@ -243,7 +252,7 @@ class LearnPage2(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.lessonImage.setScene(scene)
     def clickPlayAudioButton(self):
         af.play_note(24 + af.notes.note_to_int(af.scales.get_notes("C")[self.index]))
@@ -254,7 +263,7 @@ class LearnPage3(QMainWindow):
     def __init__(self, pages, lesson_name):
         super(LearnPage3, self).__init__()
 
-        loadUi("sight-earLesson.ui", self)
+        loadUi(getPackagedPath("sight-earLesson.ui"), self)
 
         self.title = []
         self.imagename = []
@@ -263,7 +272,7 @@ class LearnPage3(QMainWindow):
         self.noteSequence = []
         self.noteDuration = []
 
-        with open('data.csv') as file:
+        with open(getPackagedPath('data.csv')) as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -287,7 +296,7 @@ class LearnPage3(QMainWindow):
         self.lessonTextLabel.setText(self.title[self.index])
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
         self.lessonImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
@@ -313,7 +322,7 @@ class LearnPage3(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.lessonImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -325,7 +334,7 @@ class LearnPage3(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.lessonImage.setScene(scene)
         
         else:
@@ -339,7 +348,7 @@ class LearnPage3(QMainWindow):
             self.lessonTextLabel.setText(self.title[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.lessonImage.setScene(scene)
     def clickPlayAudioButton(self):
         af.play_note_sequence(self.noteSequence[self.index], self.noteDuration[self.index])
@@ -351,7 +360,7 @@ class QuizPage1(QMainWindow):
     def __init__(self, pages, quiz_name):
         super(QuizPage1, self).__init__()
 
-        loadUi("note-rythQuiz.ui", self)
+        loadUi(getPackagedPath("note-rythQuiz.ui"), self)
 
         self.defaultStyle = "QPushButton {color: #18A0FB; background-color: rgb(255, 255, 255); border: 1px solid #18A0FB; margin-top: 20px;} QPushButton:hover {color: rgb(255, 255, 255);background-color:  #18A0FB;border: 1px solid #fff;}"
         self.redStyle = "background-color: red; color: rgb(255, 255, 255); margin-top: 20px;"
@@ -381,7 +390,7 @@ class QuizPage1(QMainWindow):
 
         self.index = 0
 
-        with open('data.csv') as file:
+        with open(getPackagedPath('data.csv')) as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -407,7 +416,7 @@ class QuizPage1(QMainWindow):
 
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
         self.quizImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
@@ -464,7 +473,7 @@ class QuizPage1(QMainWindow):
             self.selection4.setText(self.answerChoices[self.index][3])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.quizImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -495,7 +504,7 @@ class QuizPage1(QMainWindow):
         self.selection4.setText(self.answerChoices[self.index][3])
 
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
         self.quizImage.setScene(scene)
 
 
@@ -504,7 +513,7 @@ class QuizPage2(QMainWindow):
     def __init__(self, pages, quiz_name, app):
         super(QuizPage2, self).__init__()
         
-        loadUi("sight-earAudioQuiz.ui", self)
+        loadUi(getPackagedPath("sight-earAudioQuiz.ui"), self)
 
         self.listeningThread = None
         self.interruptListening = False
@@ -518,7 +527,7 @@ class QuizPage2(QMainWindow):
         self.interruptAudio = False
         self.index = 0
 
-        with open('data.csv') as file:
+        with open(getPackagedPath('data.csv')) as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -532,7 +541,7 @@ class QuizPage2(QMainWindow):
         self.quizText.setText(self.text[self.index])
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
         self.quizImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
@@ -590,7 +599,7 @@ class QuizPage2(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.quizImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -603,7 +612,7 @@ class QuizPage2(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.quizImage.setScene(scene)
         
         else:
@@ -617,7 +626,7 @@ class QuizPage2(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.quizImage.setScene(scene)
     def playNotes(self):
         af.play_note(24 + af.notes.note_to_int(self.noteSequence[self.index]))
@@ -636,7 +645,7 @@ class QuizPage3(QMainWindow):
     def __init__(self, pages, quiz_name, app):
         super(QuizPage3, self).__init__()
         
-        loadUi("sight-earAudioQuiz.ui", self)
+        loadUi(getPackagedPath("sight-earAudioQuiz.ui"), self)
 
         self.listeningThread = None
         self.interruptListening = False
@@ -652,7 +661,7 @@ class QuizPage3(QMainWindow):
         self.interruptAudio = False
         self.index = 0
 
-        with open('data.csv') as file:
+        with open(getPackagedPath('data.csv')) as file:
             csv_reader = csv.reader(file, delimiter=',')
 
             for row in csv_reader:
@@ -676,7 +685,7 @@ class QuizPage3(QMainWindow):
         self.quizText.setText(self.text[self.index])
         
         scene = QGraphicsScene()
-        scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+        scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
         self.quizImage.setScene(scene)
 
         self.homeButton.clicked.connect(lambda: self.clickedHomeButton(pages))
@@ -734,7 +743,7 @@ class QuizPage3(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.quizImage.setScene(scene)
 
     def clickNextButton(self, pages):
@@ -747,7 +756,7 @@ class QuizPage3(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.quizImage.setScene(scene)
         
         else:
@@ -761,7 +770,7 @@ class QuizPage3(QMainWindow):
             self.quizText.setText(self.text[self.index])
 
             scene = QGraphicsScene()
-            scene.addPixmap(QPixmap("./images/" + self.imagename[self.index]))
+            scene.addPixmap(QPixmap(getPackagedPath("./images/" + self.imagename[self.index])))
             self.quizImage.setScene(scene)
     def playNotes(self):
         af.play_note_sequence(self.noteSequence[self.index], self.noteDuration[self.index])
